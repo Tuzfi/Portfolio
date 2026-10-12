@@ -1,13 +1,18 @@
-const textos = {
+export const textos = {
   pt: {
     voltar: "← Voltar ao início",
+    proxima: "Próxima carta →",
     baralho: "↑ Baralho",
     fechar: "↓ Fechar baralho",
     baralho_aberto: "Baralho aberto • selecione uma seção",
     carta: "Carta",
-    secao: "Seção",
-    selecionar: "Selecionar →",
     rodape_nota: "Conteúdo provisório • wireframe",
+
+    carta_sobre: "Estudante de Engenharia de Software que gosta de transformar ideias em soluções úteis.",
+    carta_projetos: "Experimentos, ferramentas e interfaces construídas para resolver problemas reais.",
+    carta_experiencias: "Estágios, projetos acadêmicos e de extensão: trabalho em equipe que ganha forma.",
+    carta_habilidades: "Linguagens, frameworks e as ferramentas que uso no dia a dia de desenvolvimento.",
+    carta_contato: "Tem uma ideia ou uma oportunidade? Vamos conversar.",
 
     nav_sobre: "Sobre Mim",
     nav_projetos: "Projetos",
@@ -60,6 +65,8 @@ const textos = {
     hab_linguagens: "Linguagens",
     hab_linguagens_d: "Exemplos para estruturar a lista de linguagens.",
     hab_frameworks_d: "Exemplos de bibliotecas e frameworks.",
+    hab_frameworks: "Frameworks",
+    hab_soft: "Soft skills",
     hab_ferramentas: "Ferramentas",
     hab_ferramentas_d: "Exemplos de recursos usados no desenvolvimento.",
     hab_soft_d: "Exemplos de competências para o trabalho em equipe.",
@@ -80,13 +87,18 @@ const textos = {
 
   en: {
     voltar: "← Back to start",
+    proxima: "Next card →",
     baralho: "↑ Deck",
     fechar: "↓ Close deck",
     baralho_aberto: "Deck open • pick a section",
     carta: "Card",
-    secao: "Section",
-    selecionar: "Select →",
     rodape_nota: "Placeholder content • wireframe",
+
+    carta_sobre: "Software Engineering student who likes turning ideas into useful solutions.",
+    carta_projetos: "Experiments, tools and interfaces built to solve real problems.",
+    carta_experiencias: "Internships, academic and outreach projects: teamwork that takes shape.",
+    carta_habilidades: "Languages, frameworks and the tools I use in my daily development.",
+    carta_contato: "Got an idea or an opportunity? Let's talk.",
 
     nav_sobre: "About Me",
     nav_projetos: "Projects",
@@ -139,6 +151,8 @@ const textos = {
     hab_linguagens: "Languages",
     hab_linguagens_d: "Examples to structure the language list.",
     hab_frameworks_d: "Examples of libraries and frameworks.",
+    hab_frameworks: "Frameworks",
+    hab_soft: "Soft skills",
     hab_ferramentas: "Tools",
     hab_ferramentas_d: "Examples of resources used in development.",
     hab_soft_d: "Examples of teamwork skills.",
