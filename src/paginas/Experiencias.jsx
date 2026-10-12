@@ -1,11 +1,7 @@
 import Pagina from "../Pagina";
 import { useIdioma } from "../Idioma";
 
-const experiencias = [
-  { cargo: "exp1_cargo", local: "exp1_local", desc: "exp1_desc", atual: true },
-  { cargo: "exp2_cargo", local: "exp2_local", desc: "exp2_desc" },
-  { cargo: "exp3_cargo", local: "exp3_local", desc: "exp3_desc" }
-];
+const cargos = ["exp1", "exp2", "exp3", "exp4"];
 
 export default function Experiencias() {
   const { t } = useIdioma();
@@ -17,18 +13,29 @@ export default function Experiencias() {
       <p className="subtitulo">{t("exp_sub")}</p>
 
       <ol className="linha-tempo">
-        {experiencias.map((exp) => (
-          <li key={exp.cargo}>
+        {cargos.map((chave) => (
+          <li key={chave}>
             <div className="cabeca">
-              <h3>{t(exp.cargo)}</h3>
-              <span>20XX — {exp.atual ? t("exp_atual") : "20XX"}</span>
+              <h3>{t(chave + "_cargo")}</h3>
+              <span>{t(chave + "_periodo")}</span>
             </div>
-            <p className="local">{t(exp.local)}</p>
-            <p>{t(exp.desc)}</p>
+            <p className="local">GO Engenharia LTDA</p>
+            <p>{t(chave + "_desc")}</p>
           </li>
         ))}
       </ol>
-      <p className="aviso">{t("exp_aviso")}</p>
+
+      <div className="formacoes">
+        <div>
+          <h3>{t("form_academica")}</h3>
+          <p><strong>{t("form1_nome")}</strong><br />{t("form1_desc")}</p>
+          <p><strong>{t("form2_nome")}</strong><br />{t("form2_desc")}</p>
+        </div>
+        <div>
+          <h3>{t("form_complementar")}</h3>
+          <p><strong>{t("form3_nome")}</strong><br />{t("form3_desc")}</p>
+        </div>
+      </div>
     </Pagina>
   );
 }

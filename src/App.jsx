@@ -76,7 +76,7 @@ export default function App() {
 
       <footer className="rodape">
         <span>Portfólio • Keven Lino</span>
-        <span>{t("rodape_nota")}</span>
+        <span>© 2026 Keven Henrique de Carvalho Lino</span>
       </footer>
     </>
   );

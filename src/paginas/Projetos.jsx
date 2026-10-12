@@ -1,11 +1,25 @@
 import Pagina from "../Pagina";
+import ImagemReal from "../ImagemReal";
 import { useIdioma } from "../Idioma";
 
 const projetos = [
-  { nome: "Organizador de estudos", desc: "proj1_desc", tags: ["React", "TypeScript"] },
-  { nome: "Catálogo de livros", desc: "proj2_desc", tags: ["JavaScript", "CSS"] },
-  { nome: "Painel de finanças", desc: "proj3_desc", tags: ["React", "Node.js"] }
-];
+  {
+    nome: "Astro Runner: Survival",
+    ano: 2026,
+    desc: "proj_astro",
+    tags: ["Python", "Pygame"],
+    repo: "https://github.com/Tuzfi/Astro-Runner-Survival",
+    imagem: "/img/astro-runner.gif"
+  },
+  {
+    nome: "MusicFlow",
+    ano: 2026,
+    desc: "proj_music",
+    tags: ["HTML", "CSS", "JavaScript", "Chart.js", "json-server"],
+    repo: "https://github.com/Tuzfi/MusicFlow",
+    imagem: "/img/musicflow.png"
+  }
+].sort((a, b) => a.ano - b.ano);
 
 export default function Projetos() {
   const { t } = useIdioma();
@@ -19,20 +33,27 @@ export default function Projetos() {
       <div className="grade-projetos">
         {projetos.map((projeto) => (
           <article className="projeto" key={projeto.nome}>
-            <div className="imagem">{t("proj_imagem")}</div>
-            <h3>{projeto.nome}</h3>
+            <div className="imagem">
+              <ImagemReal
+                caminhos={[projeto.imagem]}
+                alt={projeto.nome}
+                senao={<span>{t("proj_imagem")}</span>}
+              />
+            </div>
+            <div className="projeto-titulo">
+              <h3>{projeto.nome}</h3>
+              <span>{projeto.ano}</span>
+            </div>
             <p>{t(projeto.desc)}</p>
             <ul className="tags">
               {projeto.tags.map((tag) => <li key={tag}>{tag}</li>)}
             </ul>
             <div className="links">
-              <a href="#">{t("proj_codigo")}</a>
-              <a href="#">{t("proj_demo")}</a>
+              <a href={projeto.repo} target="_blank" rel="noreferrer">{t("proj_codigo")} ↗</a>
             </div>
           </article>
         ))}
       </div>
-      <p className="aviso">{t("proj_aviso")}</p>
     </Pagina>
   );
 }

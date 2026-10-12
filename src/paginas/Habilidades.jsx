@@ -2,10 +2,14 @@ import Pagina from "../Pagina";
 import { useIdioma } from "../Idioma";
 
 const grupos = [
-  { titulo: "hab_linguagens", desc: "hab_linguagens_d", tags: ["JavaScript", "TypeScript", "Python", "Java"] },
-  { titulo: "hab_frameworks", desc: "hab_frameworks_d", tags: ["React", "Next.js", "Express", "Tailwind CSS"] },
-  { titulo: "hab_ferramentas", desc: "hab_ferramentas_d", tags: ["Git", "GitHub", "VS Code", "Figma"] },
-  { titulo: "hab_soft", desc: "hab_soft_d", tags: ["hab_comunicacao", "hab_colaboracao", "hab_organizacao"], traduzir: true }
+  { titulo: "hab_linguagens", tags: ["Python", "JavaScript", "Java", "C++", "HTML", "CSS"] },
+  { titulo: "hab_frameworks", tags: ["Pygame", "Chart.js", "Spring Boot", "Thymeleaf", "React"] },
+  { titulo: "hab_ferramentas", tags: ["Git", "GitHub", "VS Code", "Maven", "Excel", "AutoCAD", "Word"] },
+  {
+    titulo: "hab_pessoais",
+    tags: ["hab_curiosidade", "hab_organizacao", "hab_equipe", "hab_comunicacao", "hab_analitico"],
+    traduzir: true
+  }
 ];
 
 export default function Habilidades() {
@@ -21,7 +25,6 @@ export default function Habilidades() {
         {grupos.map((grupo) => (
           <div className="grupo" key={grupo.titulo}>
             <h3>{t(grupo.titulo)}</h3>
-            <p>{t(grupo.desc)}</p>
             <ul className="tags">
               {grupo.tags.map((tag) => (
                 <li key={tag}>{grupo.traduzir ? t(tag) : tag}</li>
@@ -30,7 +33,6 @@ export default function Habilidades() {
           </div>
         ))}
       </div>
-      <p className="aviso">{t("hab_aviso")}</p>
     </Pagina>
   );
 }

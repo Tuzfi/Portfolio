@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useIdioma } from "./Idioma";
 import { lances, montarLance } from "./distribuicao";
 
 const molaHover = { type: "spring", stiffness: 300, damping: 20 };
+const molaDestaque = { type: "spring", stiffness: 140, damping: 18 };
+
+// distância entre uma carta e a seguinte na fileira (largura da carta menos a sobreposição do CSS)
+const PASSO = 180;
 
 function montarChegada(modo, posicao, giro, altura, compacto) {
   if (modo === "distribuir") {
@@ -31,7 +35,7 @@ function montarChegada(modo, posicao, giro, altura, compacto) {
 }
 
 // modo: "distribuir" (primeira visita), "parado" (já na mesa) ou "subir" (baralho aberto)
-export default function Carta({ carta, posicao, modo = "parado", atual, aoEscolher, aoTerminar }) {
+export default function Carta({ carta, posicao, modo = "parado", atual, destaque, recuo, pular, aoEscolher, aoTerminar }) {
   const { t } = useIdioma();
   const [fase, setFase] = useState(modo === "parado" ? "repouso" : "voo");
   const [sobre, setSobre] = useState(false);
@@ -39,28 +43,36 @@ export default function Carta({ carta, posicao, modo = "parado", atual, aoEscolh
   const compacto = window.innerWidth <= 800;
   const giro = compacto ? 0 : carta.giro;
   const altura = compacto ? 0 : carta.altura;
-  const elevada = sobre && fase === "repouso" && !compacto;
+  const elevada = sobre && fase === "repouso" && !compacto && !destaque && !recuo;
 
   // calculado uma vez: se mudasse a cada render, passar o mouse no voo reiniciaria os quadros
   const [chegada] = useState(() => montarChegada(modo, posicao, giro, altura, compacto));
 
-  const repouso = {
-    x: 0,
-    y: elevada ? -30 : altura,
-    rotate: elevada ? 0 : giro,
-    rotateX: 0,
-    rotateY: 0,
-    scale: 1,
-    opacity: 1,
-    transition: molaHover
+  useEffect(() => {
+    if (pular && fase === "voo") setFase("repouso");
+  }, [pular, fase]);
+
+  // a escolhida vem para o centro da fileira e cresce; as outras afundam e escurecem
+  let repouso = {
+    x: 0, y: elevada ? -30 : altura, rotate: elevada ? 0 : giro,
+    rotateX: 0, rotateY: 0, scale: 1, opacity: 1, transition: molaHover
+  };
+  let sombraRepouso = {
+    y: elevada ? 40 : 18, scale: elevada ? 1.04 : 1, opacity: elevada ? 0.4 : 0.6, transition: molaHover
   };
 
-  const sombraRepouso = {
-    y: elevada ? 40 : 18,
-    scale: elevada ? 1.04 : 1,
-    opacity: elevada ? 0.4 : 0.6,
-    transition: molaHover
-  };
+  if (destaque) {
+    repouso = {
+      x: compacto ? 0 : (2 - posicao) * PASSO, y: -10, rotate: 0,
+      rotateX: 0, rotateY: 0, scale: compacto ? 1.06 : 1.4, opacity: 1, transition: molaDestaque
+    };
+    sombraRepouso = { y: 60, scale: 1.1, opacity: 0.5, transition: molaDestaque };
+  }
+
+  if (recuo) {
+    repouso = { ...repouso, y: altura + 24, scale: 0.92, opacity: 0.3, transition: molaDestaque };
+    sombraRepouso = { ...sombraRepouso, opacity: 0.2, transition: molaDestaque };
+  }
 
   const assentou = () => {
     if (fase !== "voo") return;
@@ -71,7 +83,7 @@ export default function Carta({ carta, posicao, modo = "parado", atual, aoEscolh
   return (
     <motion.div
       className="carta-mesa"
-      style={{ transformPerspective: 900 }}
+      style={{ transformPerspective: 900, zIndex: destaque ? 20 : undefined }}
       initial={chegada.partida}
       animate={fase === "voo" ? chegada.entrada : repouso}
       exit={modo === "subir" ? { y: 240, opacity: 0, transition: { duration: 0.2 } } : undefined}
@@ -102,7 +114,7 @@ export default function Carta({ carta, posicao, modo = "parado", atual, aoEscolh
           className="carta-link"
           to={"/" + carta.id}
           aria-label={t("nav_" + carta.id)}
-          onClick={aoEscolher}
+          onClick={(evento) => aoEscolher && aoEscolher(evento, carta.id)}
         />
       </div>
     </motion.div>

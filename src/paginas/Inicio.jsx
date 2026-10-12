@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useReducedMotion } from "framer-motion";
 import { cartas } from "../cartas";
 import Carta from "../Carta";
@@ -9,10 +10,39 @@ const CHAVE = "baralho-distribuido";
 
 export default function Inicio() {
   const { t } = useIdioma();
+  const navegar = useNavigate();
   const reduzir = useReducedMotion();
   const [distribuir] = useState(() => !reduzir && !sessionStorage.getItem(CHAVE));
+  const [intro, setIntro] = useState(distribuir);
+  const [pulou, setPulou] = useState(false);
+  const [escolhida, setEscolhida] = useState(null);
 
-  const marcarVisita = () => sessionStorage.setItem(CHAVE, "1");
+  const encerrarIntro = () => {
+    sessionStorage.setItem(CHAVE, "1");
+    setIntro(false);
+  };
+
+  const pularIntro = () => {
+    setPulou(true);
+    encerrarIntro();
+  };
+
+  useEffect(() => {
+    if (!intro) return;
+    const aoTeclar = (evento) => {
+      if (evento.key === "Escape") pularIntro();
+    };
+    window.addEventListener("keydown", aoTeclar);
+    return () => window.removeEventListener("keydown", aoTeclar);
+  }, [intro]);
+
+  const escolher = (evento, id) => {
+    if (evento.metaKey || evento.ctrlKey || escolhida) return;
+    evento.preventDefault();
+    if (reduzir) return navegar("/" + id);
+    setEscolhida(id);
+    setTimeout(() => navegar("/" + id), 650);
+  };
 
   return (
     <Pagina className="inicio" entrada={!distribuir}>
@@ -30,12 +60,22 @@ export default function Inicio() {
             carta={carta}
             posicao={i}
             modo={distribuir ? "distribuir" : "parado"}
-            aoTerminar={i === cartas.length - 1 ? marcarVisita : undefined}
+            pular={pulou}
+            destaque={escolhida === carta.id}
+            recuo={escolhida !== null && escolhida !== carta.id}
+            aoEscolher={escolher}
+            aoTerminar={i === cartas.length - 1 ? encerrarIntro : undefined}
           />
         ))}
       </div>
 
       <p className="legenda">{t("inicio_legenda")}</p>
+
+      {intro && (
+        <button type="button" className="botao pular" onClick={pularIntro}>
+          {t("pular")}
+        </button>
+      )}
     </Pagina>
   );
 }
