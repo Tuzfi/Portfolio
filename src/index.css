@@ -13,7 +13,7 @@
 * { box-sizing: border-box; }
 
 #root {
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
@@ -68,6 +68,10 @@ a { color: inherit; }
 }
 
 .idiomas button {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
   border: 0;
   background: transparent;
   padding: 4px 12px;
@@ -108,7 +112,11 @@ main {
 /* botões */
 
 .botao {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   padding: 7px 18px;
   border: 1px solid var(--ouro);
   border-radius: 4px;
@@ -189,6 +197,7 @@ main {
   width: 262px;
   height: 372px;
   margin-left: -82px;
+  container-type: inline-size;
 }
 
 .carta-mesa:first-child { margin-left: 0; }
@@ -294,29 +303,34 @@ main {
 
 .carta-rotulo {
   margin-top: auto;
-  font-size: 0.62rem;
+  font-size: clamp(0.52rem, 2.7cqi, 0.62rem);
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
 .carta-titulo {
+  max-width: 100%;
   font-family: var(--titulo);
-  font-size: 2rem;
+  font-size: clamp(1rem, 12cqi, 2rem);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
-.carta-experiencias .carta-titulo { font-size: 1.65rem; letter-spacing: 0.01em; }
-.carta-habilidades .carta-titulo { font-size: 1.2rem; letter-spacing: 0.01em; }
+.carta-experiencias .carta-titulo { font-size: clamp(0.95rem, 10cqi, 1.65rem); letter-spacing: 0.01em; }
+.carta-habilidades .carta-titulo { font-size: clamp(0.9rem, 7.3cqi, 1.2rem); letter-spacing: 0.01em; }
 
 .carta-texto {
-  margin-top: 30px;
-  padding-top: 12px;
+  max-width: 100%;
+  margin-top: clamp(16px, 11cqi, 30px);
+  padding-top: clamp(8px, 4.6cqi, 12px);
   border-top: 1px solid rgba(42, 33, 24, 0.55);
-  font-size: 0.8rem;
+  font-size: clamp(0.68rem, 4.8cqi, 0.8rem);
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 /* baralho aberto sobre qualquer página */
@@ -353,9 +367,9 @@ main {
 .baralho .carta-mesa:first-child { margin-left: 0; }
 .baralho .carta { padding: 16px 18px; }
 .baralho .carta-texto { display: none; }
-.baralho .carta-titulo { font-size: 1.4rem; }
-.baralho .carta-experiencias .carta-titulo { font-size: 1.1rem; }
-.baralho .carta-habilidades .carta-titulo { font-size: 1rem; }
+.baralho .carta-titulo { font-size: clamp(1rem, 8.5cqi, 1.4rem); }
+.baralho .carta-experiencias .carta-titulo { font-size: clamp(0.9rem, 7.5cqi, 1.1rem); }
+.baralho .carta-habilidades .carta-titulo { font-size: clamp(0.85rem, 6cqi, 1rem); }
 .baralho .carta-numero { width: 28px; height: 28px; font-size: 0.85rem; }
 .baralho .carta-arte { width: 64px; height: 68px; }
 
@@ -632,8 +646,8 @@ form .botao { margin-top: 18px; }
   }
 
   .baralho .carta-mesa { width: 170px; height: 240px; }
-  .carta-experiencias .carta-titulo { font-size: 1.3rem; }
-  .carta-habilidades .carta-titulo { font-size: 1.1rem; }
+  .carta-experiencias .carta-titulo { font-size: clamp(0.95rem, 10cqi, 1.3rem); }
+  .carta-habilidades .carta-titulo { font-size: clamp(0.9rem, 7.3cqi, 1.1rem); }
 }
 
 @media (max-width: 560px) {
@@ -768,4 +782,187 @@ form .botao { margin-top: 18px; }
 @media (max-width: 800px) {
   .grade-projetos,
   .formacoes { grid-template-columns: 1fr; }
+}
+
+/* ajustes responsivos do baralho e das páginas */
+
+@media (max-width: 1024px) {
+  .topo {
+    gap: clamp(8px, 2.5vw, 20px);
+    padding: clamp(10px, 2.5vw, 18px) clamp(12px, 3.5vw, 36px);
+  }
+
+  .marca {
+    font-size: clamp(1rem, 3.5vw, 1.35rem);
+    letter-spacing: clamp(0.01em, 0.5vw, 0.06em);
+    white-space: nowrap;
+  }
+
+  .idiomas button { padding: 4px 8px; }
+
+  main {
+    min-width: 0;
+    padding: clamp(20px, 3vw, 28px) clamp(16px, 3vw, 24px) clamp(32px, 5vw, 48px);
+  }
+
+  .pagina,
+  .sobre,
+  .projeto,
+  .grupo,
+  .contato,
+  .grade-projetos,
+  .grade-habilidades,
+  .formacoes { min-width: 0; }
+
+  .barra { gap: clamp(8px, 3vw, 20px); }
+
+  .inicio .cartas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: clamp(12px, 2vw, 24px);
+    overflow: visible;
+    padding: clamp(28px, 5vw, 48px) 0;
+  }
+
+  .inicio .carta-mesa {
+    width: min(100%, 300px);
+    height: auto;
+    aspect-ratio: 262 / 372;
+    margin: 0;
+    justify-self: center;
+  }
+
+  .inicio .carta-mesa:last-child { grid-column: 1 / -1; }
+
+  .baralho-painel {
+    inset: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: calc(100dvh - 24px);
+    padding: clamp(12px, 3vw, 24px);
+  }
+
+  .baralho-painel .cartas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    justify-items: center;
+    gap: clamp(12px, 2vw, 20px);
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    margin: 0;
+    padding: clamp(12px, 3vw, 24px) 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .baralho .carta-mesa {
+    width: min(100%, 240px);
+    height: auto;
+    aspect-ratio: 262 / 372;
+    margin: 0;
+    justify-self: center;
+  }
+
+  .grade-projetos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .topo,
+  .rodape { padding-right: 12px; padding-left: 12px; }
+
+  .topo { gap: 8px; }
+  .marca { font-size: clamp(0.95rem, 5vw, 1.15rem); }
+
+  .rodape {
+    gap: 8px;
+    font-size: clamp(0.68rem, 3vw, 0.78rem);
+  }
+
+  main {
+    padding: clamp(16px, 5vw, 24px) clamp(12px, 4vw, 16px) clamp(28px, 7vw, 40px);
+  }
+
+  .barra { margin-bottom: clamp(16px, 5vw, 28px); }
+  .barra .botao { padding-right: clamp(10px, 4vw, 18px); padding-left: clamp(10px, 4vw, 18px); }
+
+  .inicio { margin: 0; }
+  .inicio-texto { max-width: 100%; }
+  .inicio-texto h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .inicio-texto p { font-size: clamp(0.9rem, 3.8vw, 1rem); }
+  .rotulo { font-size: clamp(0.65rem, 2.8vw, 0.72rem); }
+
+  .inicio .cartas {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: clamp(16px, 5vw, 24px);
+    padding: clamp(20px, 7vw, 32px) 0;
+  }
+
+  .inicio .carta-mesa,
+  .inicio .carta-mesa:last-child {
+    grid-column: auto;
+    width: min(88vw, 320px);
+  }
+
+  .carta {
+    padding: clamp(16px, 5vw, 22px);
+  }
+
+  .carta-texto {
+    margin-top: clamp(16px, 11cqi, 30px);
+  }
+
+  .legenda { font-size: clamp(0.7rem, 3vw, 0.78rem); }
+
+  .baralho-painel {
+    inset: max(8px, env(safe-area-inset-top)) 8px max(8px, env(safe-area-inset-bottom));
+    padding: clamp(10px, 3vw, 16px);
+  }
+
+  .baralho-painel .cartas {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  .baralho .carta-mesa {
+    width: min(88vw, 320px);
+    max-width: 100%;
+  }
+
+  .pagina:not(.inicio) {
+    max-height: calc(100dvh - 7rem);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  .sobre,
+  .contato,
+  .grade-projetos,
+  .grade-habilidades,
+  .formacoes { grid-template-columns: minmax(0, 1fr); }
+
+  .sobre { gap: clamp(16px, 5vw, 32px); padding: clamp(16px, 5vw, 26px); }
+  .sobre > img { height: clamp(220px, 70vw, 340px); }
+  .foto { min-height: clamp(180px, 58vw, 240px); }
+  .ficha { grid-template-columns: minmax(0, 1fr); }
+  .ficha dt { border-bottom: 0; padding-bottom: 0; }
+
+  .grupo,
+  form,
+  .canais { padding: clamp(16px, 5vw, 22px); }
+  .linha-tempo { padding-left: 24px; }
+  .linha-tempo li { padding: clamp(12px, 4vw, 14px); }
+  .linha-tempo li::before { left: -25px; }
+  .cabeca { gap: 6px; }
+  .cabeca h3 { font-size: clamp(1.1rem, 5vw, 1.35rem); }
+  .canais a { flex-wrap: wrap; overflow-wrap: anywhere; }
+
+  .pular {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
 }

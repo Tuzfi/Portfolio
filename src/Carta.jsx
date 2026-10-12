@@ -62,6 +62,18 @@ function IlustracaoCarta({ id }) {
 }
 
 function montarChegada(modo, posicao, giro, altura, compacto) {
+  const foraDaTela = window.innerHeight + 120;
+
+  if (modo === "distribuir" && compacto) {
+    const transition = { duration: 0.55, delay: 0.12 + posicao * 0.11, ease: "easeOut" };
+    return {
+      partida: { x: 0, y: foraDaTela, rotate: 0, scale: 0.98, opacity: 0 },
+      entrada: { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1, transition },
+      sombraPartida: { y: 18, scale: 1, opacity: 0 },
+      sombraEntrada: { y: 18, scale: 1, opacity: 0.6, transition }
+    };
+  }
+
   if (modo === "distribuir") {
     const lance = montarLance(lances[posicao], giro, altura, compacto);
     return {
@@ -91,9 +103,17 @@ export default function Carta({ carta, posicao, modo = "parado", atual, destaque
   const [fase, setFase] = useState(modo === "parado" ? "repouso" : "voo");
   const [sobre, setSobre] = useState(false);
   const [centroX, setCentroX] = useState(0);
+  const [compacto, setCompacto] = useState(() => window.matchMedia("(max-width: 1024px)").matches);
   const elemento = useRef(null);
 
-  const compacto = window.innerWidth <= 800;
+  useEffect(() => {
+    const consultaCompacta = window.matchMedia("(max-width: 1024px)");
+    const atualizar = () => setCompacto(consultaCompacta.matches);
+
+    consultaCompacta.addEventListener("change", atualizar);
+    return () => consultaCompacta.removeEventListener("change", atualizar);
+  }, []);
+
   const giro = compacto ? 0 : carta.giro;
   const altura = compacto ? 0 : carta.altura;
   const ajusteMesa = compacto || modo === "subir" ? 0 : AJUSTES_MESA[posicao];

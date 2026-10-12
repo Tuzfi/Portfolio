@@ -26,7 +26,7 @@ export function montarLance(lance, giro, altura, compacto) {
 
   const carta = {
     x: [desvio, sentido * 7, -sentido * 2, 0],
-    y: [altura - queda, altura + 9, altura - 3, altura],
+    y: [altura + queda, altura + 9, altura - 3, altura],
     rotate: [giro + lance.giroVoo, giro - girou * 3, giro + girou, giro],
     rotateX: [lance.inclinacao, -lance.inclinacao * 0.18, lance.inclinacao * 0.05, 0],
     rotateY: [lance.lado * 12, -lance.lado * 2, lance.lado * 0.5, 0],
