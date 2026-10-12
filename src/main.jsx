@@ -10,7 +10,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <IdiomaProvider>
-        <MotionConfig reducedMotion="user">
+        <MotionConfig reducedMotion="never">
           <App />
         </MotionConfig>
       </IdiomaProvider>

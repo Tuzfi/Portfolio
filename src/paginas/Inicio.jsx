@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useReducedMotion } from "framer-motion";
 import { cartas } from "../cartas";
 import Carta from "../Carta";
 import Pagina from "../Pagina";
@@ -9,7 +8,7 @@ import { useIdioma } from "../Idioma";
 export default function Inicio() {
   const { t } = useIdioma();
   const navegar = useNavigate();
-  const reduzir = useReducedMotion();
+   const reduzir = false;
   const [distribuir] = useState(() => !reduzir);
   const [intro, setIntro] = useState(distribuir);
   const [pulou, setPulou] = useState(false);
