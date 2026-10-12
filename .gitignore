@@ -1,0 +1,16 @@
+# Dependências e build (a partir da Sprint 01 / Parte 2)
+node_modules/
+.next/
+out/
+dist/
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Sistema e IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

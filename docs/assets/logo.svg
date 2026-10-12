@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="Logo Portfólio Keven Lino">
+  <rect x="18" y="22" width="72" height="96" rx="10" fill="#1f2937"/>
+  <rect x="24" y="16" width="72" height="96" rx="10" fill="#374151"/>
+  <rect x="30" y="10" width="72" height="96" rx="10" fill="#111827" stroke="#d4af37" stroke-width="2"/>
+  <text x="66" y="68" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#d4af37">KL</text>
+</svg>
