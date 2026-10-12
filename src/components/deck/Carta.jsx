@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useIdioma } from "./Idioma";
+import { useIdioma } from "../../context/IdiomaContext";
 import { lances, montarLance } from "./distribuicao";
 
 const molaHover = { type: "spring", stiffness: 300, damping: 20 };

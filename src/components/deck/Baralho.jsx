@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import { cartas } from "./cartas";
+import { cartas } from "../../data/cartas";
 import Carta from "./Carta";
-import { useIdioma } from "./Idioma";
+import { useIdioma } from "../../context/IdiomaContext";
 
 export default function Baralho({ aberto, fechar }) {
   const { t } = useIdioma();

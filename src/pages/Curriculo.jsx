@@ -3,14 +3,14 @@ import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-import { useIdioma } from "../Idioma";
+import { useIdioma } from "../context/IdiomaContext";
 import "./Curriculo.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 
 const arquivos = {
-  pt: "/curriculo-keven-pt.pdf",
-  en: "/curriculo-keven-en.pdf"
+  pt: "/curriculos/curriculo-keven-pt.pdf",
+  en: "/curriculos/curriculo-keven-en.pdf"
 };
 
 const zoomMinimo = 0.5;

@@ -1,5 +1,5 @@
-import Pagina from "../Pagina";
-import { useIdioma } from "../Idioma";
+import Pagina from "../components/shared/Pagina";
+import { useIdioma } from "../context/IdiomaContext";
 
 const cargos = ["exp1", "exp2", "exp3", "exp4"];
 

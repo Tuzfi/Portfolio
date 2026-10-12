@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { textos } from "./textos";
+import { textos } from "../data/textos";
 
 const IdiomaContext = createContext();
 

@@ -26,15 +26,12 @@
 
 ## 🚧 Status do Projeto
 
-**Sprint atual: Lab01S01 — Planejamento e prototipação**
+**Aplicação em desenvolvimento — portfólio Vite + React**
 
-[![Versão](https://img.shields.io/badge/Versão-v0.1.0--s01-blue?style=for-the-badge)](https://github.com/Tuzfi/Portfolio)
-[![Status](https://img.shields.io/badge/Status-Lab01S01-yellow?style=for-the-badge)](https://github.com/Tuzfi/Portfolio)
-![Next.js](https://img.shields.io/badge/Next.js-previsto-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-previsto-007ec6?style=for-the-badge&logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-previsto-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-previsto-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-previsto-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-deploy-000000?style=for-the-badge&logo=vercel&logoColor=white)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Tuzfi/Portfolio?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Tuzfi/Portfolio?style=for-the-badge)
 
@@ -84,10 +81,7 @@ O **Portfólio Profissional** existe para reunir, em um único site, a apresenta
 - **Contexto:** acadêmico (PUC Minas / Engenharia de Software — DIAW) e pessoal (marca profissional).
 - **Onde será usado:** apresentação da Sprint 03, envio em processos seletivos e acesso público após o deploy.
 
-A metáfora do **baralho** diferencia o portfólio de um site de seções empilhadas: o visitante escolhe uma carta, lê o conteúdo e volta ao baralho. O conteúdo será bilingue (**PT | EN**) desde o cabeçalho.
-
-> [!NOTE]
-> Na Sprint 01 o código da aplicação ainda não foi gerado. Esta entrega cobre repositório, README, protótipos e a estrutura prevista do site.
+A metáfora do **baralho** diferencia o portfólio de um site de seções empilhadas: o visitante escolhe uma carta, lê o conteúdo e volta ao baralho. O conteúdo é bilíngue (**PT | EN**) desde o cabeçalho.
 
 ---
 
@@ -100,7 +94,8 @@ A metáfora do **baralho** diferencia o portfólio de um site de seções empilh
 - 📁 **Projetos em timeline:** do mais antigo ao mais recente, com nome, descrição, tecnologias, link do GitHub e imagem/GIF.
 - 💼 **Experiências:** empresa/instituição, cargo ou atividade, período e descrição.
 - 🧩 **Habilidades:** linguagens, frameworks, ferramentas e soft skills (carta extra do protótipo).
-- ✉️ **Contato:** ícones clicáveis (e-mail, LinkedIn, GitHub, WhatsApp) e formulário (nome, e-mail, mensagem) com envio por e-mail.
+- 📄 **Currículo:** PDFs em português e inglês, visualizados dentro do site.
+- ✉️ **Contato:** links para e-mail, LinkedIn, GitHub e WhatsApp, além de formulário com envio por EmailJS.
 - ✅ **Validação e responsividade:** checagem básica do formulário e layout adaptado a desktop e mobile.
 - ☁️ **Hospedagem:** publicação gratuita em nuvem (Vercel).
 
@@ -108,23 +103,24 @@ A metáfora do **baralho** diferencia o portfólio de um site de seções empilh
 
 ## 🛠 Tecnologias Utilizadas
 
-Stack **prevista** para as Sprints 01–03 (versões serão fixadas no `package.json` na Parte 2).
+Tecnologias atualmente utilizadas no aplicativo:
 
 ### 💻 Front-end
 
-* **Framework:** [Next.js](https://nextjs.org/) (App Router)
-* **Biblioteca de UI:** [React](https://react.dev/)
-* **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
-* **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
-* **Animações (opcional):** [Framer Motion](https://www.framer.com/motion/)
-* **Formulários:** [React Hook Form](https://react-hook-form.com/)
+* **Build e desenvolvimento:** [Vite](https://vite.dev/)
+* **Biblioteca de UI:** [React 19](https://react.dev/)
+* **Linguagem:** JavaScript (ES modules)
+* **Estilização:** CSS
+* **Animações:** [Framer Motion](https://www.framer.com/motion/)
+* **Rotas:** [React Router](https://reactrouter.com/)
+* **Visualização de PDF:** [React-PDF](https://github.com/wojtekmaj/react-pdf)
 
 ### 🖥️ Integrações (sem back-end próprio)
 
-O enunciado pede front-end, back-end e nuvem. Neste projeto o “back-end” da Sprint 02 será o **envio de e-mail pelo formulário**, sem API Spring/Node própria:
+O formulário envia e-mails por serviço externo, sem API ou banco de dados próprios:
 
 * **Envio de e-mail:** [EmailJS](https://www.emailjs.com/) (do front-end, com chaves públicas de serviço)
-* **Conteúdo:** arquivos TypeScript/JSON em `src/content` (projetos, experiências, i18n)
+* **Conteúdo:** dados e traduções em `src/data`
 
 ### ⚙️ Infraestrutura & DevOps
 
@@ -136,39 +132,38 @@ O enunciado pede front-end, back-end e nuvem. Neste projeto o “back-end” da 
 
 ## 🏗 Arquitetura
 
-Arquitetura **front-end monolítica** no Next.js, com conteúdo estático versionado e um serviço externo (EmailJS) para o formulário. Foi escolhida por:
+O aplicativo é uma SPA React compilada pelo Vite. A composição das rotas fica separada dos componentes reutilizáveis, páginas, estado de idioma, dados, serviços e estilos. Conteúdo estático é versionado e o EmailJS envia as mensagens do formulário:
 
-- alinhar-se ao deploy gratuito na Vercel;
-- ser suficiente para portfólio (não há autenticação nem banco);
-- permitir PT/EN e as seções do baralho com rotas simples.
-
-**Componentes principais**
+- não há API própria, autenticação ou banco de dados;
+- o idioma PT/EN é compartilhado pelo contexto;
+- o visualizador de currículo é carregado sob demanda.
 
 | Camada | Papel |
 | :--- | :--- |
-| `app/` | Rotas (`/`, `/sobre`, `/projetos`, `/experiencias`, `/habilidades`, `/contato`) e layout (header/footer) |
-| `components/` | Baralho, cartas, timeline, formulário, seletor de idioma |
-| `content/` | Dados reais (textos PT/EN, projetos, experiências) |
-| EmailJS | Envio da mensagem de contato |
+| `src/app/` | Composição das rotas e estrutura compartilhada |
+| `src/pages/` | Conteúdo de cada rota |
+| `src/components/` | Baralho, cartas e componentes compartilhados |
+| `src/context/` e `src/data/` | Idioma global, conteúdo e traduções |
+| `src/services/` | Integrações, incluindo configuração EmailJS |
+| `public/` | PDFs e imagens estáticas |
+| `archive/` | Protótipo estático antigo, fora do build |
+| EmailJS | Envio das mensagens de contato |
 | Vercel | Build, preview e produção |
 
 ```mermaid
 flowchart LR
-  Visitante --> NextApp["Next.js + React"]
-  NextApp --> Conteudo["content / i18n"]
-  NextApp --> EmailJS["EmailJS"]
+  Visitante --> App["Vite + React"]
+  App --> Dados["src/data + contexto PT/EN"]
+  App --> EmailJS["EmailJS"]
   EmailJS --> Caixa["E-mail do autor"]
-  NextApp --> Vercel["Vercel"]
+  App --> Vercel["Vercel"]
 ```
 
-**Decisão:** não haverá PostgreSQL, Spring Boot nem Docker nesta versão. Se o formulário exigir um endpoint próprio depois, uma Route Handler do Next.js pode ser adicionada sem mudar o restante do site.
+O protótipo estático anterior está arquivado e não participa do aplicativo atual.
 
 ---
 
 ## 🔧 Instalação e Execução
-
-> [!IMPORTANT]
-> Os comandos abaixo valem **depois** da Parte 2 (scaffold do Next.js). Nesta Sprint 01 o repositório contém documentação e protótipos.
 
 ### Pré-requisitos
 
@@ -211,21 +206,21 @@ Reinicie o Vite após alterar `.env.local`. A Public Key é própria para uso no
 npm run dev
 ```
 
-🎨 *A aplicação ficará em **http://localhost:3000** (porta padrão do Next.js).*
+O Vite informa no terminal a URL local, normalmente **http://localhost:5173**.
 
 ```bash
 npm run build
-npm run start
+npm run preview
 ```
 
 ---
 
 ## 🚀 Deploy
 
-Hospedagem prevista: **Vercel** (adequada ao Next.js e ao preview pedido na Sprint 02).
+Hospedagem: **Vercel** (preset Vite).
 
 1. Conectar o repositório `Tuzfi/Portfolio` na Vercel.
-2. Framework preset: **Next.js**.
+2. Framework preset: **Vite**.
 3. Configurar as variáveis `VITE_EMAILJS_*` descritas na seção de EmailJS.
 4. Cada push em `main` gera produção; pull requests geram Preview.
 
@@ -235,40 +230,41 @@ O link público entra na seção [Links Úteis](#-links-úteis) na Sprint 03.
 
 ## 📂 Estrutura de Pastas
 
-Estado **atual** (Sprint 01) e pasta **prevista** para o código (Partes 2 em diante).
+Estrutura atual do aplicativo Vite + React, organizada por responsabilidade:
 
 ```
 .
-├── .gitignore                 # 🧹 Ignora node_modules, .next, .env.local
-├── README.md                  # 📘 Documentação do laboratório
-├── docs/
-│   ├── assets/
-│   │   └── logo.svg           # 🎨 Marca do portfólio (baralho + KL)
-│   └── prototipos/
-│       ├── 01-home-baralho.png
-│       ├── 02-projetos.png
-│       ├── 03-experiencias.png
-│       ├── 04-sobre-mim.png
-│       ├── 05-habilidades.png
-│       ├── 06-contato.png
-│       ├── 07-navegacao-baralho-aberto.png
-│       └── wireframes-figma.pdf
-│
-├── public/                    # 📂 (previsto) fotos, GIFs dos projetos, ícones
-├── src/                       # 📂 (previsto) código-fonte Next.js
-│   ├── app/                   # 📄 Rotas e layout principal
-│   ├── components/            # 🧱 Header, Footer, Deck, Card, Form
-│   ├── content/               # 📝 Textos PT/EN, projetos, experiências
-│   └── lib/                   # 🛠️ i18n, tipos, EmailJS
-├── package.json               # 📦 (previsto) dependências e scripts
-└── tsconfig.json              # 🔷 (previsto) TypeScript
+├── archive/
+│   └── legacy-static-prototype/ # Protótipo HTML/CSS/JS antigo, fora do build
+├── docs/                        # Protótipos, wireframes e assets da documentação
+├── public/
+│   ├── curriculos/              # PDFs PT e EN servidos pelo Vite
+│   └── images/                  # Imagens estáticas e GIFs dos projetos
+├── src/
+│   ├── app/                     # Aplicação e composição das rotas
+│   ├── components/
+│   │   ├── deck/                # Baralho, cartas e animação de distribuição
+│   │   └── shared/              # Componentes reutilizados pelas páginas
+│   ├── context/                 # Estado global de idioma
+│   ├── data/                    # Cartas e traduções PT/EN
+│   ├── pages/                   # Páginas das rotas
+│   ├── services/                # Integrações externas, como EmailJS
+│   ├── styles/                  # CSS global
+│   └── main.jsx                 # Entrada React, providers e estilos globais
+├── .env.example                 # Nomes das variáveis públicas necessárias
+├── index.html
+├── package.json
+├── vercel.json
+└── vite.config.js
 ```
+
+Os arquivos do protótipo estático foram preservados em `archive/legacy-static-prototype/` para referência; o Vite inicia exclusivamente por `src/main.jsx`.
 
 ---
 
 ## 🎥 Demonstração
 
-Nesta Sprint 01 a demonstração são os **wireframes de média fidelidade**. Prints da aplicação real entram nas Sprints 02 e 03.
+Os protótipos de média fidelidade estão preservados abaixo como referência; a aplicação funcional está na raiz do repositório.
 
 ### 🌐 Aplicação Web — protótipos
 
@@ -292,24 +288,21 @@ Nesta Sprint 01 a demonstração são os **wireframes de média fidelidade**. Pr
 
 ## 🧪 Testes
 
-Ainda não há suíte automatizada na Sprint 01. Planejamento:
-
-* **Sprint 02:** verificação manual das rotas, PT/EN, formulário e breakpoints.
-* **Opcional:** testes de componentes com Vitest / Testing Library; E2E com Playwright nas rotas principais.
+O repositório ainda não tem suíte automatizada. A validação de produção é feita com:
 
 ```bash
-npm run test        # a definir após o scaffold
-npm run test:e2e    # a definir, se houver E2E
+npm run build
+npm run preview
 ```
 
 ---
 
 ## 🔗 Documentações utilizadas
 
-* 📖 [Next.js](https://nextjs.org/docs)
+* 📖 [Vite](https://vite.dev/guide/)
 * 📖 [React](https://react.dev/)
-* 📖 [Tailwind CSS](https://tailwindcss.com/docs)
-* 📖 [React Hook Form](https://react-hook-form.com/)
+* 📖 [React Router](https://reactrouter.com/)
+* 📖 [React-PDF](https://github.com/wojtekmaj/react-pdf)
 * 📖 [EmailJS](https://www.emailjs.com/docs/)
 * 📖 [Vercel](https://vercel.com/docs)
 * 📖 [Template de README — Prof. João Paulo Aramuni](https://github.com/joaopauloaramuni/desenvolvimento-e-integracao-de-aplicacoes-web/blob/main/TEMPLATES/template_README.md)

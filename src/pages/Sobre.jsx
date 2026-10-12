@@ -1,8 +1,8 @@
-import Pagina from "../Pagina";
-import ImagemReal from "../ImagemReal";
-import { useIdioma } from "../Idioma";
+import Pagina from "../components/shared/Pagina";
+import ImagemReal from "../components/shared/ImagemReal";
+import { useIdioma } from "../context/IdiomaContext";
 
-const fotoCaminhos = ["jpg", "jpeg", "png", "webp"].map((ext) => "/img/kevenfoto." + ext);
+const fotoCaminhos = ["jpg", "jpeg", "png", "webp"].map((ext) => "/images/kevenfoto." + ext);
 
 export default function Sobre() {
   const { t } = useIdioma();

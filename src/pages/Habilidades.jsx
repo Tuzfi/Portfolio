@@ -1,5 +1,5 @@
-import Pagina from "../Pagina";
-import { useIdioma } from "../Idioma";
+import Pagina from "../components/shared/Pagina";
+import { useIdioma } from "../context/IdiomaContext";
 
 const grupos = [
   { titulo: "hab_linguagens", tags: ["Python", "JavaScript", "Java", "C++", "HTML", "CSS"] },

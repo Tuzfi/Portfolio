@@ -1,6 +1,6 @@
-import Pagina from "../Pagina";
-import ImagemReal from "../ImagemReal";
-import { useIdioma } from "../Idioma";
+import Pagina from "../components/shared/Pagina";
+import ImagemReal from "../components/shared/ImagemReal";
+import { useIdioma } from "../context/IdiomaContext";
 
 const projetos = [
   {
@@ -9,7 +9,7 @@ const projetos = [
     desc: "proj_astro",
     tags: ["Python", "Pygame"],
     repo: "https://github.com/Tuzfi/Astro-Runner-Survival",
-    imagem: "/img/astro-runner.gif"
+    imagem: "/images/astro-runner.gif"
   },
   {
     nome: "MusicFlow",
@@ -17,7 +17,7 @@ const projetos = [
     desc: "proj_music",
     tags: ["HTML", "CSS", "JavaScript", "Chart.js", "json-server"],
     repo: "https://github.com/Tuzfi/MusicFlow",
-    imagem: "/img/musicflow.png"
+    imagem: "/images/musicflow.gif"
   }
 ].sort((a, b) => a.ano - b.ano);
 

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { cartas } from "../cartas";
-import Carta from "../Carta";
-import Pagina from "../Pagina";
-import { useIdioma } from "../Idioma";
+import { cartas } from "../data/cartas";
+import Carta from "../components/deck/Carta";
+import Pagina from "../components/shared/Pagina";
+import { useIdioma } from "../context/IdiomaContext";
 
 export default function Inicio() {
   const { t } = useIdioma();

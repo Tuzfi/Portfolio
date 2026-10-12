@@ -1,8 +1,8 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import emailJsConfig, { emailJsConfigured } from "../emailJsConfig";
-import Pagina from "../Pagina";
-import { useIdioma } from "../Idioma";
+import emailJsConfig, { emailJsConfigured } from "../services/emailJsConfig";
+import Pagina from "../components/shared/Pagina";
+import { useIdioma } from "../context/IdiomaContext";
 
 const canais = [
   { nome: "E-mail", texto: "kevenhenmg@gmail.com", link: "mailto:kevenhenmg@gmail.com" },

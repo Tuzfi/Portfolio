@@ -1,17 +1,17 @@
 import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { cartas } from "./cartas";
-import { useIdioma } from "./Idioma";
-import Baralho from "./Baralho";
-import Inicio from "./paginas/Inicio";
-import Sobre from "./paginas/Sobre";
-import Projetos from "./paginas/Projetos";
-import Experiencias from "./paginas/Experiencias";
-import Habilidades from "./paginas/Habilidades";
-import Contato from "./paginas/Contato";
+import { cartas } from "../data/cartas";
+import { useIdioma } from "../context/IdiomaContext";
+import Baralho from "../components/deck/Baralho";
+import Inicio from "../pages/Inicio";
+import Sobre from "../pages/Sobre";
+import Projetos from "../pages/Projetos";
+import Experiencias from "../pages/Experiencias";
+import Habilidades from "../pages/Habilidades";
+import Contato from "../pages/Contato";
 
-const Curriculo = lazy(() => import("./paginas/Curriculo"));
+const Curriculo = lazy(() => import("../pages/Curriculo"));
 
 export default function App() {
   const local = useLocation();
