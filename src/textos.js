@@ -82,6 +82,10 @@ export const textos = {
     cont_mensagem: "Mensagem",
     cont_enviar: "Enviar",
     cont_outro: "Prefere outro canal?",
+    cont_enviando: "Enviando...",
+    cont_sucesso: "Mensagem enviada! Obrigado pelo contato.",
+    cont_erro: "Não foi possível enviar sua mensagem. Tente novamente ou use um dos outros canais.",
+    cont_configurar: "O envio de mensagens ainda não está configurado. Use um dos outros canais de contato.",
 
     curriculo_botao: "Ver currículo",
     curriculo_titulo: "Currículo",
@@ -181,6 +185,10 @@ export const textos = {
     cont_mensagem: "Message",
     cont_enviar: "Send",
     cont_outro: "Prefer another channel?",
+    cont_enviando: "Sending...",
+    cont_sucesso: "Message sent! Thank you for reaching out.",
+    cont_erro: "Your message could not be sent. Please try again or use another contact channel.",
+    cont_configurar: "Message sending is not configured yet. Please use one of the other contact channels.",
 
     curriculo_botao: "View résumé",
     curriculo_titulo: "Résumé",

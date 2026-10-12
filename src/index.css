@@ -605,6 +605,15 @@ form textarea {
 
 form textarea { resize: vertical; }
 form .botao { margin-top: 18px; }
+form .botao:disabled { opacity: 0.7; cursor: wait; }
+
+.contato-status {
+  margin: 12px 0 0;
+  font-size: 0.88rem;
+}
+
+.contato-status.sucesso { color: var(--ouro); }
+.contato-status.erro { color: #e6a8a8; }
 
 .canais h3 { margin: 0 0 4px; font-size: 1.45rem; }
 .canais p { margin: 0 0 10px; font-size: 0.88rem; color: var(--suave); }

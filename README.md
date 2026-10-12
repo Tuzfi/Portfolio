@@ -175,19 +175,7 @@ flowchart LR
 * **Node.js:** LTS (v20 ou superior)
 * **npm** (vem com o Node.js)
 * **Git**
-* Conta no **EmailJS** (Sprint 02) e na **Vercel** (Sprint 03)
-
-### 🔑 Variáveis de Ambiente
-
-Arquivo **`.env.local`** na raiz da aplicação (não versionado). Exemplo previsto:
-
-```
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=seu_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=seu_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=sua_public_key
-```
-
-Na Vercel: *Project Settings → Environment Variables*, com os mesmos nomes.
+* Conta no **EmailJS** e na **Vercel**
 
 ### 📦 Instalação de Dependências
 
@@ -196,6 +184,26 @@ git clone https://github.com/Tuzfi/Portfolio.git
 cd Portfolio
 npm install
 ```
+
+### 📬 Configurar o formulário de contato (EmailJS)
+
+O formulário usa o EmailJS diretamente, sem servidor ou banco de dados. Crie um serviço e um template no painel EmailJS. No template, configure o destinatário como seu e-mail e use estas variáveis:
+
+| Campo do template | Variável |
+| :--- | :--- |
+| From Name | `{{from_name}}` |
+| Reply To | `{{reply_to}}` |
+| conteúdo da mensagem | `{{message}}` |
+
+Copie `.env.example` para `.env.local` e preencha os identificadores do serviço, template e a Public Key:
+
+```env
+VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
+VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
+VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxx
+```
+
+Reinicie o Vite após alterar `.env.local`. A Public Key é própria para uso no cliente; não coloque senhas nem Secret Keys nessas variáveis. Para produção, cadastre os mesmos valores em **Vercel → Project Settings → Environment Variables**. Sem a configuração, o formulário informa que o envio está indisponível e mantém visíveis os outros canais de contato.
 
 ### ⚡ Como Executar a Aplicação
 
@@ -218,7 +226,7 @@ Hospedagem prevista: **Vercel** (adequada ao Next.js e ao preview pedido na Spri
 
 1. Conectar o repositório `Tuzfi/Portfolio` na Vercel.
 2. Framework preset: **Next.js**.
-3. Configurar as variáveis `NEXT_PUBLIC_EMAILJS_*`.
+3. Configurar as variáveis `VITE_EMAILJS_*` descritas na seção de EmailJS.
 4. Cada push em `main` gera produção; pull requests geram Preview.
 
 O link público entra na seção [Links Úteis](#-links-úteis) na Sprint 03.

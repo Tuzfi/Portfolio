@@ -1,3 +1,6 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import emailJsConfig, { emailJsConfigured } from "../emailJsConfig";
 import Pagina from "../Pagina";
 import { useIdioma } from "../Idioma";
 
@@ -10,9 +13,43 @@ const canais = [
 
 export default function Contato() {
   const { t } = useIdioma();
+  const [enviando, setEnviando] = useState(false);
+  const [status, setStatus] = useState(null);
 
-  // o envio por e-mail só entra na Sprint 2
-  const enviar = (evento) => evento.preventDefault();
+  const enviar = async (evento) => {
+    evento.preventDefault();
+    if (enviando) return;
+
+    if (!emailJsConfigured) {
+      setStatus({ tipo: "erro", chave: "cont_configurar" });
+      return;
+    }
+
+    const form = evento.currentTarget;
+    const dados = new FormData(form);
+    setEnviando(true);
+    setStatus(null);
+
+    try {
+      await emailjs.send(
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
+        {
+          from_name: dados.get("nome"),
+          reply_to: dados.get("email"),
+          message: dados.get("mensagem")
+        },
+        { publicKey: emailJsConfig.publicKey }
+      );
+      form.reset();
+      setStatus({ tipo: "sucesso", chave: "cont_sucesso" });
+    } catch (error) {
+      console.error("Falha ao enviar a mensagem de contato pelo EmailJS", error);
+      setStatus({ tipo: "erro", chave: "cont_erro" });
+    } finally {
+      setEnviando(false);
+    }
+  };
 
   return (
     <Pagina>
@@ -23,15 +60,22 @@ export default function Contato() {
       <div className="contato">
         <form onSubmit={enviar}>
           <label htmlFor="nome">{t("cont_nome")}</label>
-          <input id="nome" type="text" name="nome" />
+          <input id="nome" type="text" name="nome" autoComplete="name" maxLength={120} required />
 
           <label htmlFor="email">{t("cont_email")}</label>
-          <input id="email" type="email" name="email" />
+          <input id="email" type="email" name="email" autoComplete="email" maxLength={254} required />
 
           <label htmlFor="mensagem">{t("cont_mensagem")}</label>
-          <textarea id="mensagem" name="mensagem" rows="5" />
+          <textarea id="mensagem" name="mensagem" rows="5" maxLength={5000} required />
 
-          <button type="submit" className="botao">{t("cont_enviar")}</button>
+          <button type="submit" className="botao" disabled={enviando}>
+            {enviando ? t("cont_enviando") : t("cont_enviar")}
+          </button>
+          {status && (
+            <p className={`contato-status ${status.tipo}`} role={status.tipo === "erro" ? "alert" : "status"}>
+              {t(status.chave)}
+            </p>
+          )}
         </form>
 
         <aside className="canais">
