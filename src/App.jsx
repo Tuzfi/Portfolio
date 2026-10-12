@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { cartas } from "./cartas";
@@ -11,12 +11,15 @@ import Experiencias from "./paginas/Experiencias";
 import Habilidades from "./paginas/Habilidades";
 import Contato from "./paginas/Contato";
 
+const Curriculo = lazy(() => import("./paginas/Curriculo"));
+
 export default function App() {
   const local = useLocation();
   const { idioma, setIdioma, t } = useIdioma();
   const [baralhoAberto, setBaralhoAberto] = useState(false);
 
   const naHome = local.pathname === "/";
+  const naPaginaCurriculo = local.pathname === "/curriculo";
   const posicao = cartas.findIndex((c) => "/" + c.id === local.pathname);
   const proxima = cartas[(posicao + 1) % cartas.length];
 
@@ -49,7 +52,9 @@ export default function App() {
         {!naHome && (
           <div className="barra">
             <Link className="botao" to="/">{t("voltar")}</Link>
-            <Link className="botao" to={"/" + proxima.id}>{t("proxima")}</Link>
+            {!naPaginaCurriculo && (
+              <Link className="botao" to={"/" + proxima.id}>{t("proxima")}</Link>
+            )}
           </div>
         )}
 
@@ -61,11 +66,19 @@ export default function App() {
             <Route path="/experiencias" element={<Experiencias />} />
             <Route path="/habilidades" element={<Habilidades />} />
             <Route path="/contato" element={<Contato />} />
+            <Route
+              path="/curriculo"
+              element={
+                <Suspense fallback={<p className="curriculo-status">{t("curriculo_carregando")}</p>}>
+                  <Curriculo />
+                </Suspense>
+              }
+            />
             <Route path="*" element={<Inicio />} />
           </Routes>
         </AnimatePresence>
 
-        {!naHome && (
+        {!naHome && !naPaginaCurriculo && (
           <button id="abrir-baralho" className="botao" type="button" onClick={() => setBaralhoAberto(true)}>
             {t("baralho")}
           </button>
@@ -76,6 +89,7 @@ export default function App() {
 
       <footer className="rodape">
         <span>Portfólio • Keven Lino</span>
+        <Link className="botao rodape-curriculo" to="/curriculo">{t("curriculo_botao")}</Link>
         <span>© 2026 Keven Henrique de Carvalho Lino</span>
       </footer>
     </>

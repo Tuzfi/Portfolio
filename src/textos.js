@@ -81,7 +81,21 @@ export const textos = {
     cont_email: "E-mail",
     cont_mensagem: "Mensagem",
     cont_enviar: "Enviar",
-    cont_outro: "Prefere outro canal?"
+    cont_outro: "Prefere outro canal?",
+
+    curriculo_botao: "Ver currículo",
+    curriculo_titulo: "Currículo",
+    curriculo_carregando: "Carregando visualizador...",
+    curriculo_zoom: "Zoom",
+    curriculo_diminuir: "Diminuir zoom",
+    curriculo_aumentar: "Aumentar zoom",
+    curriculo_ajustar: "Ajustar à largura",
+    curriculo_baixar: "Baixar PDF",
+    curriculo_abrir: "Abrir em nova aba",
+    curriculo_carregando_pdf: "Carregando currículo...",
+    curriculo_erro: "Não foi possível exibir o PDF aqui. Use as opções para baixar ou abrir o arquivo.",
+    curriculo_pagina: "página",
+    curriculo_paginas: "páginas"
   },
 
   en: {
@@ -166,6 +180,20 @@ export const textos = {
     cont_email: "E-mail",
     cont_mensagem: "Message",
     cont_enviar: "Send",
-    cont_outro: "Prefer another channel?"
+    cont_outro: "Prefer another channel?",
+
+    curriculo_botao: "View résumé",
+    curriculo_titulo: "Résumé",
+    curriculo_carregando: "Loading viewer...",
+    curriculo_zoom: "Zoom",
+    curriculo_diminuir: "Zoom out",
+    curriculo_aumentar: "Zoom in",
+    curriculo_ajustar: "Fit to width",
+    curriculo_baixar: "Download PDF",
+    curriculo_abrir: "Open in new tab",
+    curriculo_carregando_pdf: "Loading résumé...",
+    curriculo_erro: "The PDF could not be displayed here. Use the options to download or open the file.",
+    curriculo_pagina: "page",
+    curriculo_paginas: "pages"
   }
 };

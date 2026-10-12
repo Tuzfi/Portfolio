@@ -1,0 +1,143 @@
+.curriculo {
+  width: 100%;
+}
+
+.curriculo h2 {
+  margin-bottom: clamp(16px, 3vw, 28px);
+}
+
+.curriculo-status {
+  margin: auto;
+  color: var(--suave);
+  text-align: center;
+}
+
+.cv-viewer {
+  overflow: hidden;
+  color: var(--texto);
+  background: rgba(14, 11, 9, 0.86);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+}
+
+.cv-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(10px, 2vw, 16px);
+  background: #17110c;
+  border-bottom: 1px solid var(--linha);
+}
+
+.cv-zoom,
+.cv-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cv-zoom button,
+.cv-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px 12px;
+  color: var(--ouro);
+  background: transparent;
+  border: 1px solid var(--linha);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.82rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cv-zoom button:hover:not(:disabled),
+.cv-button:hover {
+  color: var(--tinta);
+  background: var(--ouro);
+}
+
+.cv-zoom button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.cv-zoom-value {
+  min-width: 48px;
+  color: var(--ouro);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.cv-pages {
+  color: var(--suave);
+  font-size: 0.82rem;
+}
+
+.cv-button.primary {
+  color: var(--tinta);
+  background: var(--ouro);
+}
+
+.cv-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: min(60dvh, 420px);
+  max-height: 78dvh;
+  padding: clamp(10px, 3vw, 24px);
+  overflow: auto;
+  background: rgba(230, 220, 198, 0.08);
+  overscroll-behavior: contain;
+}
+
+.cv-area .react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 2vw, 20px);
+  min-width: min-content;
+}
+
+.cv-page {
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.cv-status {
+  margin: auto;
+  color: var(--suave);
+  text-align: center;
+}
+
+.cv-error {
+  max-width: 36rem;
+}
+
+@media (max-width: 620px) {
+  .cv-toolbar {
+    justify-content: center;
+  }
+
+  .cv-actions {
+    width: 100%;
+  }
+
+  .cv-button {
+    flex: 1;
+    text-align: center;
+  }
+
+  .cv-area {
+    max-height: 76dvh;
+  }
+}
