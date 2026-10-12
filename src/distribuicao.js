@@ -3,10 +3,10 @@
 // giroVoo e inclinacao: graus extras durante o voo; duracao e atraso: segundos
 export const lances = [
   { lado: -1, desvio: 280, giroVoo: -38, inclinacao: 20, duracao: 0.74, atraso: 0.2 },
-  { lado: 1, desvio: 235, giroVoo: 30, inclinacao: 14, duracao: 0.7, atraso: 0.42 },
-  { lado: -1, desvio: 210, giroVoo: -26, inclinacao: 22, duracao: 0.78, atraso: 0.62 },
-  { lado: 1, desvio: 270, giroVoo: 36, inclinacao: 16, duracao: 0.72, atraso: 0.85 },
-  { lado: -1, desvio: 190, giroVoo: -22, inclinacao: 18, duracao: 0.76, atraso: 1.05 }
+  { lado: 1, desvio: 235, giroVoo: 30, inclinacao: 14, duracao: 0.7, atraso: 0.58 },
+  { lado: -1, desvio: 210, giroVoo: -26, inclinacao: 22, duracao: 0.78, atraso: 0.96 },
+  { lado: 1, desvio: 270, giroVoo: 36, inclinacao: 16, duracao: 0.72, atraso: 1.34 },
+  { lado: -1, desvio: 190, giroVoo: -22, inclinacao: 18, duracao: 0.76, atraso: 1.72 }
 ];
 
 // voo, impacto, rebote e assentamento
@@ -18,8 +18,7 @@ const primeiros = (quadros) =>
 
 export function montarLance(lance, giro, altura, compacto) {
   const desvio = lance.lado * lance.desvio * (compacto ? 0.35 : 1);
-  // no celular a fileira rola na horizontal e corta o que passa do topo, então o voo é mais curto
-  const queda = compacto ? 300 : window.innerHeight + 120;
+  const queda = window.innerHeight + 120;
   const sentido = -lance.lado;
   const girou = Math.sign(lance.giroVoo);
 

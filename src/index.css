@@ -7,7 +7,7 @@
   --painel: rgba(230, 220, 198, 0.05);
   --tinta: #2a2118;
   --raio: 6px;
-  --titulo: "Cormorant Garamond", Georgia, serif;
+  --titulo: "IM Fell English", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -22,10 +22,14 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    radial-gradient(ellipse at 50% 0%, #3b2d1d 0%, #17120d 45%, var(--fundo) 100%);
+    radial-gradient(ellipse at 50% 42%, rgba(132, 83, 39, 0.18) 0%, transparent 57%),
+    radial-gradient(ellipse at 50% 0%, rgba(92, 59, 31, 0.34) 0%, transparent 52%),
+    repeating-linear-gradient(2deg, transparent 0 25px, rgba(5, 3, 2, 0.14) 26px, rgba(162, 109, 58, 0.035) 28px, transparent 31px),
+    repeating-linear-gradient(90deg, transparent 0 218px, rgba(5, 3, 2, 0.12) 219px, transparent 221px),
+    linear-gradient(112deg, #21170f 0%, #17110c 48%, #100c09 100%);
   background-attachment: fixed;
   color: var(--texto);
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "Roboto", system-ui, sans-serif;
   line-height: 1.6;
 }
 
@@ -171,7 +175,13 @@ main {
   display: flex;
   justify-content: center;
   padding: 72px 0 56px;
+  scrollbar-color: rgba(201, 180, 138, 0.45) rgba(14, 11, 9, 0.7);
+  scrollbar-width: thin;
 }
+
+.cartas::-webkit-scrollbar { height: 6px; }
+.cartas::-webkit-scrollbar-track { background: rgba(14, 11, 9, 0.7); }
+.cartas::-webkit-scrollbar-thumb { background: rgba(201, 180, 138, 0.45); }
 
 .carta-mesa {
   position: relative;
@@ -184,6 +194,7 @@ main {
 .carta-mesa:first-child { margin-left: 0; }
 .carta-mesa:hover,
 .carta-mesa:focus-within { z-index: 5; }
+.inicio .carta-mesa:nth-child(3) { z-index: 4; }
 
 .carta-sombra {
   position: absolute;
@@ -204,10 +215,13 @@ main {
   border: 1px solid var(--tinta);
   border-radius: 3px;
   background:
-    repeating-linear-gradient(90deg, rgba(90, 70, 40, 0.06) 0 1px, transparent 1px 3px),
-    linear-gradient(160deg, #d6c49a, #bda776);
+    radial-gradient(ellipse at 12% 18%, rgba(118, 72, 37, 0.13), transparent 25%),
+    radial-gradient(ellipse at 83% 76%, rgba(98, 56, 33, 0.11), transparent 30%),
+    repeating-linear-gradient(91deg, rgba(90, 70, 40, 0.045) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg, #ddcda8 0%, #cabb96 47%, #b9a77e 100%);
   color: var(--tinta);
   text-decoration: none;
+  box-shadow: inset 0 0 24px rgba(67, 43, 25, 0.15);
 }
 
 .carta::before {
@@ -217,6 +231,36 @@ main {
   border: 1px solid rgba(42, 33, 24, 0.75);
   pointer-events: none;
 }
+
+.carta::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  background:
+    linear-gradient(var(--tinta), var(--tinta)) left top / 14px 1px,
+    linear-gradient(var(--tinta), var(--tinta)) left top / 1px 14px,
+    linear-gradient(var(--tinta), var(--tinta)) right top / 14px 1px,
+    linear-gradient(var(--tinta), var(--tinta)) right top / 1px 14px,
+    linear-gradient(var(--tinta), var(--tinta)) left bottom / 14px 1px,
+    linear-gradient(var(--tinta), var(--tinta)) left bottom / 1px 14px,
+    linear-gradient(var(--tinta), var(--tinta)) right bottom / 14px 1px,
+    linear-gradient(var(--tinta), var(--tinta)) right bottom / 1px 14px;
+  background-repeat: no-repeat;
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+.carta-arte {
+  position: absolute;
+  top: 23px;
+  right: 22px;
+  width: 80px;
+  height: 84px;
+  color: rgba(48, 37, 25, 0.82);
+}
+
+.carta-arte-halo { stroke: currentColor; stroke-width: 0.7; stroke-dasharray: 1.5 3; opacity: 0.48; }
+.carta-arte-base { stroke: currentColor; stroke-width: 0.8; opacity: 0.55; }
 
 .carta-link {
   position: absolute;
@@ -264,6 +308,9 @@ main {
   text-transform: uppercase;
 }
 
+.carta-experiencias .carta-titulo { font-size: 1.65rem; letter-spacing: 0.01em; }
+.carta-habilidades .carta-titulo { font-size: 1.2rem; letter-spacing: 0.01em; }
+
 .carta-texto {
   margin-top: 30px;
   padding-top: 12px;
@@ -307,8 +354,10 @@ main {
 .baralho .carta { padding: 16px 18px; }
 .baralho .carta-texto { display: none; }
 .baralho .carta-titulo { font-size: 1.4rem; }
+.baralho .carta-experiencias .carta-titulo { font-size: 1.1rem; }
+.baralho .carta-habilidades .carta-titulo { font-size: 1rem; }
 .baralho .carta-numero { width: 28px; height: 28px; font-size: 0.85rem; }
-.baralho .carta-icone { top: 18px; right: 18px; }
+.baralho .carta-arte { width: 64px; height: 68px; }
 
 /* páginas internas */
 
@@ -583,6 +632,8 @@ form .botao { margin-top: 18px; }
   }
 
   .baralho .carta-mesa { width: 170px; height: 240px; }
+  .carta-experiencias .carta-titulo { font-size: 1.3rem; }
+  .carta-habilidades .carta-titulo { font-size: 1.1rem; }
 }
 
 @media (max-width: 560px) {
@@ -645,7 +696,7 @@ form .botao { margin-top: 18px; }
 .imagem img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .projeto-titulo {
@@ -673,7 +724,7 @@ form .botao { margin-top: 18px; }
   transform: rotate(-1.5deg);
 }
 
-.sobre > img { height: 340px; object-fit: cover; filter: sepia(0.25); }
+.sobre > img { height: 340px; object-fit: contain; filter: sepia(0.25); }
 
 /* fichas de experiência */
 

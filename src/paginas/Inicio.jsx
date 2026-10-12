@@ -6,19 +6,16 @@ import Carta from "../Carta";
 import Pagina from "../Pagina";
 import { useIdioma } from "../Idioma";
 
-const CHAVE = "baralho-distribuido";
-
 export default function Inicio() {
   const { t } = useIdioma();
   const navegar = useNavigate();
   const reduzir = useReducedMotion();
-  const [distribuir] = useState(() => !reduzir && !sessionStorage.getItem(CHAVE));
+  const [distribuir] = useState(() => !reduzir);
   const [intro, setIntro] = useState(distribuir);
   const [pulou, setPulou] = useState(false);
   const [escolhida, setEscolhida] = useState(null);
 
   const encerrarIntro = () => {
-    sessionStorage.setItem(CHAVE, "1");
     setIntro(false);
   };
 
