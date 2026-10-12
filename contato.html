@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contato | Keven Lino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-pagina="contato">
+
+  <header class="topo">
+    <a class="marca" href="index.html">Keven Lino</a>
+    <div class="idiomas">
+      <button type="button" data-idioma="pt" class="ativo">PT</button>
+      <button type="button" data-idioma="en">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="barra">
+      <a class="botao" href="index.html" data-i18n="voltar"></a>
+      <a class="botao" href="sobre.html" data-i18n="proxima"></a>
+    </div>
+
+    <section id="contato" class="pagina">
+      <p class="rotulo"><span data-i18n="carta"></span> 05 / 05</p>
+      <h2 data-i18n="nav_contato"></h2>
+      <p class="subtitulo" data-i18n="cont_sub"></p>
+
+      <div class="contato">
+        <form id="form-contato">
+          <label for="nome" data-i18n="cont_nome"></label>
+          <input id="nome" type="text" name="nome">
+
+          <label for="email" data-i18n="cont_email"></label>
+          <input id="email" type="email" name="email">
+
+          <label for="mensagem" data-i18n="cont_mensagem"></label>
+          <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+
+          <button type="submit" class="botao" data-i18n="cont_enviar"></button>
+        </form>
+
+        <aside class="canais">
+          <h3 data-i18n="cont_outro"></h3>
+          <p data-i18n="cont_outro_d"></p>
+          <a href="#" data-i18n="cont_link_email"></a>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+        </aside>
+      </div>
+    </section>
+
+    <button id="abrir-baralho" class="botao" type="button" data-i18n="baralho"></button>
+  </main>
+
+  <div id="baralho" class="baralho" hidden>
+    <div class="baralho-fundo"></div>
+    <div class="baralho-painel">
+      <p class="rotulo" data-i18n="baralho_aberto"></p>
+      <div class="cartas" id="cartas-baralho"></div>
+      <button id="fechar-baralho" class="botao" type="button" data-i18n="fechar"></button>
+    </div>
+  </div>
+
+  <footer class="rodape">
+    <span>Portfólio • Keven Lino</span>
+    <span data-i18n="rodape_nota"></span>
+  </footer>
+
+  <script src="js/textos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
