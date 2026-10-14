@@ -710,13 +710,20 @@ form .botao:disabled { opacity: 0.7; cursor: wait; }
 }
 
 .projeto .imagem {
-  height: 170px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  aspect-ratio: 1105 / 619;
   border: 1px solid var(--tinta);
   color: #4a3d2c;
 }
 
-.imagem img {
+.projeto .imagem img {
+  display: block;
+  flex: 0 0 100%;
+  max-width: 100%;
+  max-height: 100%;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -731,6 +738,94 @@ form .botao:disabled { opacity: 0.7; cursor: wait; }
 
 .projeto-titulo span { font-size: 0.8rem; }
 .projeto .links a { color: var(--tinta); text-decoration: underline; }
+
+.projeto .links .botao-jogar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 148px;
+  min-height: 48px;
+  margin-left: auto;
+  padding: 10px 20px;
+  border: 1px solid var(--tinta);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--tinta);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.projeto .links .botao-jogar:hover {
+  background: rgba(42, 33, 24, 0.1);
+}
+
+.jogo-dialog {
+  width: min(1280px, 90vw, calc((80dvh - 64px) * 16 / 9));
+  height: auto;
+  max-width: none;
+  max-height: 80dvh;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--ouro);
+  border-radius: 6px;
+  background: #0e0b09;
+  color: var(--texto);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.75);
+}
+
+.jogo-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.jogo-dialog::backdrop {
+  background: rgba(8, 6, 4, 0.84);
+  backdrop-filter: blur(4px);
+}
+
+.jogo-dialog-cabecalho {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--linha);
+}
+
+.jogo-dialog-cabecalho h3 {
+  margin: 0;
+  font-family: var(--titulo);
+  font-size: 1.2rem;
+}
+
+.jogo-dialog-fechar {
+  min-height: 40px;
+  padding: 6px 14px;
+  border: 1px solid var(--ouro);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ouro);
+  font: inherit;
+  cursor: pointer;
+}
+
+.jogo-dialog-fechar:hover {
+  background: var(--ouro);
+  color: var(--tinta);
+}
+
+.jogo-iframe {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #7f7f7f;
+}
 
 .grade-projetos { grid-template-columns: repeat(2, 1fr); }
 
@@ -969,6 +1064,9 @@ form .botao:disabled { opacity: 0.7; cursor: wait; }
   .cabeca { gap: 6px; }
   .cabeca h3 { font-size: clamp(1.1rem, 5vw, 1.35rem); }
   .canais a { flex-wrap: wrap; overflow-wrap: anywhere; }
+
+  .jogo-dialog { width: min(90vw, calc((80dvh - 64px) * 16 / 9)); }
+  .jogo-dialog-cabecalho { padding: 8px 10px; }
 
   .pular {
     right: max(12px, env(safe-area-inset-right));

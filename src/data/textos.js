@@ -40,6 +40,8 @@ export const textos = {
     proj_sub: "Projetos organizados por data, do mais antigo ao mais recente.",
     proj_imagem: "Imagem do projeto",
     proj_codigo: "Ver repositório",
+    proj_jogar: "Jogar",
+    proj_jogo_fechar: "Fechar jogo",
     proj_astro: "Jogo de sobrevivência espacial em que o jogador controla uma nave e precisa sobreviver ao aparecimento constante de asteroides e naves inimigas. A cada 60 segundos, pode escolher uma melhoria para fortalecer a nave e enfrentar desafios progressivamente maiores.",
     proj_music: "Aplicação web para organizar e gerenciar músicas, com funcionalidades de cadastro, edição e visualização de estatísticas em uma única plataforma.",
 
@@ -143,6 +145,8 @@ export const textos = {
     proj_sub: "Projects ordered by date, from oldest to newest.",
     proj_imagem: "Project image",
     proj_codigo: "View repository",
+    proj_jogar: "Play game",
+    proj_jogo_fechar: "Close game",
     proj_astro: "A space survival game in which the player controls a spaceship and must survive waves of asteroids and enemy ships. Every 60 seconds, the player can choose an upgrade to strengthen the ship and face increasingly difficult challenges.",
     proj_music: "A web application for organizing and managing music, featuring music creation, editing, and statistics visualization in a single platform.",
 
