@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { cartas } from "../data/cartas";
 import Carta from "../components/deck/Carta";
@@ -17,6 +17,23 @@ export default function Inicio() {
   const encerrarIntro = () => {
     setIntro(false);
   };
+
+  useLayoutEffect(() => {
+    if (!intro) return;
+
+    const html = document.documentElement;
+    const body = document.body;
+    const overflowHtml = html.style.overflowY;
+    const overflowBody = body.style.overflowY;
+
+    html.style.overflowY = "hidden";
+    body.style.overflowY = "hidden";
+
+    return () => {
+      html.style.overflowY = overflowHtml;
+      body.style.overflowY = overflowBody;
+    };
+  }, [intro]);
 
   const pularIntro = () => {
     setPulou(true);
