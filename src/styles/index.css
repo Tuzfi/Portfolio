@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Alagard";
+  src: url("/fonts/alagard.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Quintessential";
+  src: url("/fonts/quintessential-regular.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --fundo: #0e0b09;
   --texto: #e6dcc6;
@@ -7,7 +19,7 @@
   --painel: rgba(230, 220, 198, 0.05);
   --tinta: #2a2118;
   --raio: 6px;
-  --titulo: "IM Fell English", Georgia, serif;
+  --titulo: "Alagard", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -29,7 +41,7 @@ body {
     linear-gradient(112deg, #21170f 0%, #17110c 48%, #100c09 100%);
   background-attachment: fixed;
   color: var(--texto);
-  font-family: "Roboto", system-ui, sans-serif;
+  font-family: "Quintessential", system-ui, sans-serif;
   line-height: 1.6;
 }
 
@@ -388,6 +400,7 @@ main {
 .subtitulo {
   margin: 6px 0 28px;
   color: var(--suave);
+  font-family: var(--titulo);
 }
 
 .aviso {
