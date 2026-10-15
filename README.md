@@ -2,7 +2,7 @@
 
 Site pessoal de portfólio para apresentar projetos, experiências, habilidades, currículo e formas de contato. A navegação é organizada como um baralho de cartas, com conteúdo disponível em português e inglês.
 
-Acesse o site: kevenlino.me.
+Acesse o site: [kevenlino.me.](https://www.kevenlino.me/)
 
 ## Funcionalidades
 
