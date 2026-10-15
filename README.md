@@ -2,7 +2,7 @@
 
 Site pessoal de portfólio para apresentar projetos, experiências, habilidades, currículo e formas de contato. A navegação é organizada como um baralho de cartas, com conteúdo disponível em português e inglês.
 
-> **Acesso ao site:** ainda não publicado. O endereço público será incluído aqui após a publicação gratuita na nuvem.
+Acesse o site: kevenlino.me.
 
 ## Funcionalidades
 
@@ -129,7 +129,7 @@ O template deve usar `{{from_name}}`, `{{reply_to}}` e `{{message}}`. Reinicie o
 
 ## Publicação na nuvem
 
-A publicação está planejada para a [Vercel](https://vercel.com/), no plano gratuito disponível para projetos pessoais.
+A publicação foi realizada pelo [Vercel](https://vercel.com/), no plano gratuito disponível para projetos pessoais.
 
 1. Importe o repositório `Tuzfi/Portfolio` na Vercel.
 2. Selecione o framework **Vite** e confirme:
