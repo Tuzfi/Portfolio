@@ -842,7 +842,12 @@ form .botao:disabled { opacity: 0.7; cursor: wait; }
   transform: rotate(-1.5deg);
 }
 
-.sobre > img { height: 340px; object-fit: contain; filter: sepia(0.25); }
+.sobre > img {
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: sepia(0.25);
+}
 
 /* fichas de experiência */
 
@@ -1050,7 +1055,7 @@ form .botao:disabled { opacity: 0.7; cursor: wait; }
   .formacoes { grid-template-columns: minmax(0, 1fr); }
 
   .sobre { gap: clamp(16px, 5vw, 32px); padding: clamp(16px, 5vw, 26px); }
-  .sobre > img { height: clamp(220px, 70vw, 340px); }
+  .sobre > img { height: auto; }
   .foto { min-height: clamp(180px, 58vw, 240px); }
   .ficha { grid-template-columns: minmax(0, 1fr); }
   .ficha dt { border-bottom: 0; padding-bottom: 0; }
