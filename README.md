@@ -1,196 +1,123 @@
-<!-- README do Lab 01 — Portfólio Profissional (DIAW). Baseado no template do Prof. Dr. João Paulo Aramuni. -->
+# Portfólio — Keven Lino
 
----
+Site pessoal de portfólio para apresentar projetos, experiências, habilidades, currículo e formas de contato. A navegação é organizada como um baralho de cartas, com conteúdo disponível em português e inglês.
 
-# 🃏 Portfólio Profissional — Keven Lino 👨‍💻
+> **Acesso ao site:** ainda não publicado. O endereço público será incluído aqui após a publicação gratuita na nuvem.
 
-> [!NOTE]
-> Website de portfólio pessoal para apresentar trajetória, habilidades, projetos e formas de contato, com navegação em **baralho de cartas** e conteúdo em **português e inglês**.
+## Funcionalidades
 
-<table>
-  <tr>
-    <td width="800px">
-      <div align="justify">
-        Este repositório contém o <b>Laboratório 01</b> da disciplina <b>DIAW — Desenvolvimento e Integração de Aplicações Web</b> (Engenharia de Software). O produto é um site de portfólio profissional de <b>Keven Lino</b>, com seções <i>Sobre Mim</i>, <i>Projetos</i>, <i>Experiências</i>, <i>Habilidades</i> e <i>Contato</i>. A identidade visual segue o protótipo de média fidelidade: um baralho na home; cada carta abre uma seção. O sistema será <b>responsivo</b>, publicado em nuvem (Vercel) e documentado neste README, que segue o <a href="https://github.com/joaopauloaramuni/desenvolvimento-e-integracao-de-aplicacoes-web/blob/main/TEMPLATES/template_README.md">template acadêmico</a> do Prof. Dr. João Paulo Aramuni.
-      </div>
-    </td>
-    <td>
-      <div>
-        <img src="./docs/assets/logo.svg" alt="Logo do Portfólio Keven Lino" width="120px"/>
-      </div>
-    </td>
-  </tr>
-</table>
+- Navegação por cartas e páginas responsivas.
+- Conteúdo em português e inglês.
+- Apresentação pessoal com foto.
+- Projetos com imagens/GIFs, links para os repositórios e demonstração do Astro Runner em uma sobreposição.
+- Experiências profissionais e formação.
+- Currículos em português e inglês, com visualização, zoom e download de PDF.
+- Formulário de contato via EmailJS e links de contato alternativos.
 
----
+## Tecnologias
 
-## 🚧 Status do Projeto
+- **JavaScript (ES modules) e JSX** — linguagem e componentes da interface.
+- **React 19** — biblioteca de interface.
+- **Vite 8** — servidor de desenvolvimento e ferramenta de build.
+- **CSS** — estilos e responsividade.
+- **React Router 7** — rotas da aplicação.
+- **Framer Motion 14** — transições e animações.
+- **React-PDF 10** — visualização dos currículos PDF.
+- **EmailJS Browser 5** — envio opcional do formulário de contato pelo navegador.
+- **Vercel** — plataforma prevista para hospedagem estática; a publicação ainda está pendente.
 
-**Aplicação em desenvolvimento — portfólio Vite + React**
+As versões declaradas das dependências estão em [`package.json`](./package.json), e as versões resolvidas estão registradas em [`package-lock.json`](./package-lock.json).
 
-![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![React](https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Vercel](https://img.shields.io/badge/Vercel-deploy-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![GitHub repo size](https://img.shields.io/github/repo-size/Tuzfi/Portfolio?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/Tuzfi/Portfolio?style=for-the-badge)
+### Dependências diretas
 
-| Sprint | Foco | Pontos | Situação |
-| :--- | :--- | :---: | :--- |
-| **Lab01S01** | README, wireframes, protótipo de layout e navegação | 4 | Em andamento (README + protótipos nesta entrega) |
-| **Lab01S02** | Seções, PT/EN, timeline, formulário e responsividade | 4 | Pendente |
-| **Lab01S03** | Deploy, GIFs reais, polimento e README final | 7 | Pendente |
+| Pacote | Versão declarada | Uso |
+| :--- | :--- | :--- |
+| `react` | `^19.3.0` | Interface React |
+| `react-dom` | `^19.3.0` | Renderização no navegador |
+| `react-router-dom` | `^7.18.4` | Navegação e rotas |
+| `framer-motion` | `^14.1.0` | Animações |
+| `react-pdf` | `^10.5.0` | Visualização de PDF |
+| `@emailjs/browser` | `^5.0.3` | Integração do formulário com EmailJS |
 
----
+### Dependências de desenvolvimento
 
-## 📚 Índice
-- [Links Úteis](#-links-úteis)
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Funcionalidades Principais](#-funcionalidades-principais)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Arquitetura](#-arquitetura)
-- [Instalação e Execução](#-instalação-e-execução)
-- [Deploy](#-deploy)
-- [Estrutura de Pastas](#-estrutura-de-pastas)
-- [Demonstração](#-demonstração)
-- [Testes](#-testes)
-- [Documentações utilizadas](#-documentações-utilizadas)
-- [Autores](#-autores)
-- [Contribuição](#-contribuição)
-- [Agradecimentos](#-agradecimentos)
-- [Licença](#-licença)
+| Pacote | Versão declarada | Uso |
+| :--- | :--- | :--- |
+| `vite` | `^8.3.4` | Desenvolvimento e build |
+| `@vitejs/plugin-react` | `^6.1.2` | Integração do React com Vite |
 
----
+## Estrutura do projeto
 
-## 🔗 Links Úteis
-* 🌐 **Demo Online:** *será publicado na Sprint 03 (Vercel).*
-  > 💻 **Descrição:** URL de produção do portfólio. Atualizar aqui após o deploy.
-* 🎨 **Protótipos (Figma / wireframes):** [docs/prototipos](./docs/prototipos)
-  > 📐 **Descrição:** Prints das telas de média fidelidade (home em baralho, seções e navegação).
-* 📘 **Enunciado do laboratório:** Laboratório 01 — Portfólio Profissional (DIAW).
-* 📖 **Template de README:** [template_README.md](https://github.com/joaopauloaramuni/desenvolvimento-e-integracao-de-aplicacoes-web/blob/main/TEMPLATES/template_README.md)
-
----
-
-## 📝 Sobre o Projeto
-
-O **Portfólio Profissional** existe para reunir, em um único site, a apresentação de **Keven Lino**, estudante de Engenharia de Software: formação, projetos, experiências, competências e canais de contato.
-
-- **Por que existe:** atender ao Lab 01 da disciplina DIAW e, ao mesmo tempo, publicar um portfólio real, utilizável em processos seletivos e networking.
-- **Qual problema resolve:** hoje essas informações ficam espalhadas (currículo, GitHub, redes). O site concentra a narrativa profissional com visual coerente e navegação clara.
-- **Contexto:** acadêmico (PUC Minas / Engenharia de Software — DIAW) e pessoal (marca profissional).
-- **Onde será usado:** apresentação da Sprint 03, envio em processos seletivos e acesso público após o deploy.
-
-A metáfora do **baralho** diferencia o portfólio de um site de seções empilhadas: o visitante escolhe uma carta, lê o conteúdo e volta ao baralho. O conteúdo é bilíngue (**PT | EN**) desde o cabeçalho.
-
----
-
-## ✨ Funcionalidades Principais
-
-- 🃏 **Home em baralho:** cinco cartas (Sobre Mim, Projetos, Experiências, Habilidades, Contato) com seleção para abrir a seção.
-- 🧭 **Navegação persistente:** cabeçalho com nome, alternância PT/EN, botão de voltar ao início e atalho “Baralho”.
-- 🇧🇷🇺🇸 **Internacionalização:** textos das seções em português e inglês.
-- 👤 **Sobre Mim:** apresentação, formação, localização, interesses e foto.
-- 📁 **Projetos em timeline:** do mais antigo ao mais recente, com nome, descrição, tecnologias, link do GitHub e imagem/GIF.
-- 💼 **Experiências:** empresa/instituição, cargo ou atividade, período e descrição.
-- 🧩 **Habilidades:** linguagens, frameworks, ferramentas e soft skills (carta extra do protótipo).
-- 📄 **Currículo:** PDFs em português e inglês, visualizados dentro do site.
-- ✉️ **Contato:** links para e-mail, LinkedIn, GitHub e WhatsApp, além de formulário com envio por EmailJS.
-- ✅ **Validação e responsividade:** checagem básica do formulário e layout adaptado a desktop e mobile.
-- ☁️ **Hospedagem:** publicação gratuita em nuvem (Vercel).
-
----
-
-## 🛠 Tecnologias Utilizadas
-
-Tecnologias atualmente utilizadas no aplicativo:
-
-### 💻 Front-end
-
-* **Build e desenvolvimento:** [Vite](https://vite.dev/)
-* **Biblioteca de UI:** [React 19](https://react.dev/)
-* **Linguagem:** JavaScript (ES modules)
-* **Estilização:** CSS
-* **Animações:** [Framer Motion](https://www.framer.com/motion/)
-* **Rotas:** [React Router](https://reactrouter.com/)
-* **Visualização de PDF:** [React-PDF](https://github.com/wojtekmaj/react-pdf)
-
-### 🖥️ Integrações (sem back-end próprio)
-
-O formulário envia e-mails por serviço externo, sem API ou banco de dados próprios:
-
-* **Envio de e-mail:** [EmailJS](https://www.emailjs.com/) (do front-end, com chaves públicas de serviço)
-* **Conteúdo:** dados e traduções em `src/data`
-
-### ⚙️ Infraestrutura & DevOps
-
-* **Cloud / Hosting:** [Vercel](https://vercel.com/)
-* **Versionamento:** [Git](https://git-scm.com/) + [GitHub](https://github.com/Tuzfi/Portfolio)
-* **Prototipação:** [Figma](https://www.figma.com/)
-
----
-
-## 🏗 Arquitetura
-
-O aplicativo é uma SPA React compilada pelo Vite. A composição das rotas fica separada dos componentes reutilizáveis, páginas, estado de idioma, dados, serviços e estilos. Conteúdo estático é versionado e o EmailJS envia as mensagens do formulário:
-
-- não há API própria, autenticação ou banco de dados;
-- o idioma PT/EN é compartilhado pelo contexto;
-- o visualizador de currículo é carregado sob demanda.
-
-| Camada | Papel |
-| :--- | :--- |
-| `src/app/` | Composição das rotas e estrutura compartilhada |
-| `src/pages/` | Conteúdo de cada rota |
-| `src/components/` | Baralho, cartas e componentes compartilhados |
-| `src/context/` e `src/data/` | Idioma global, conteúdo e traduções |
-| `src/services/` | Integrações, incluindo configuração EmailJS |
-| `public/` | PDFs e imagens estáticas |
-| `archive/` | Protótipo estático antigo, fora do build |
-| EmailJS | Envio das mensagens de contato |
-| Vercel | Build, preview e produção |
-
-```mermaid
-flowchart LR
-  Visitante --> App["Vite + React"]
-  App --> Dados["src/data + contexto PT/EN"]
-  App --> EmailJS["EmailJS"]
-  EmailJS --> Caixa["E-mail do autor"]
-  App --> Vercel["Vercel"]
+```text
+.
+├── archive/
+│   └── legacy-static-prototype/  # Protótipo estático anterior, mantido como referência
+├── docs/
+│   ├── assets/                   # Recursos da documentação
+│   └── prototipos/               # Wireframes e protótipos
+├── game/
+│   └── astro-runner-survival/    # Arquivos da distribuição web do jogo
+├── public/                       # Arquivos estáticos publicados pelo Vite
+│   ├── curriculos/               # Currículos em português e inglês
+│   ├── fonts/                    # Fontes locais e licença
+│   ├── game/                     # Jogo carregado na demonstração
+│   └── images/                   # Foto e imagens/GIFs dos projetos
+├── src/
+│   ├── app/                      # Composição da aplicação e rotas
+│   ├── components/
+│   │   ├── deck/                 # Cartas, baralho e distribuição
+│   │   └── shared/               # Componentes compartilhados
+│   ├── context/                  # Contexto do idioma
+│   ├── data/                     # Conteúdo e traduções
+│   ├── pages/                    # Páginas do site
+│   ├── services/                 # Configuração das integrações
+│   ├── styles/                   # Estilos globais
+│   └── main.jsx                  # Entrada React
+├── .env.example                  # Modelo das variáveis do EmailJS
+├── index.html                    # Documento HTML de entrada
+├── package.json                  # Scripts e dependências
+├── package-lock.json             # Versões resolvidas das dependências
+├── vercel.json                   # Reescrita de rotas da SPA na Vercel
+└── vite.config.js                # Configuração do Vite
 ```
 
-O protótipo estático anterior está arquivado e não participa do aplicativo atual.
+## Requisitos
 
----
+- Node.js **20.19+** ou **22.12+**.
+- npm (incluído com Node.js).
+- Git.
 
-## 🔧 Instalação e Execução
+## Instalação e execução local
 
-### Pré-requisitos
-
-* **Node.js:** LTS (v20 ou superior)
-* **npm** (vem com o Node.js)
-* **Git**
-* Conta no **EmailJS** e na **Vercel**
-
-### 📦 Instalação de Dependências
+Clone o repositório, instale as dependências e inicie o servidor de desenvolvimento:
 
 ```bash
 git clone https://github.com/Tuzfi/Portfolio.git
 cd Portfolio
 npm install
+npm run dev
 ```
 
-### 📬 Configurar o formulário de contato (EmailJS)
+O Vite exibirá no terminal o endereço local, normalmente `http://localhost:5173`.
 
-O formulário usa o EmailJS diretamente, sem servidor ou banco de dados. Crie um serviço e um template no painel EmailJS. No template, configure o destinatário como seu e-mail e use estas variáveis:
+Para gerar e testar localmente a versão de produção:
 
-| Campo do template | Variável |
-| :--- | :--- |
-| From Name | `{{from_name}}` |
-| Reply To | `{{reply_to}}` |
-| conteúdo da mensagem | `{{message}}` |
+```bash
+npm run build
+npm run preview
+```
 
-Copie `.env.example` para `.env.local` e preencha os identificadores do serviço, template e a Public Key:
+O build é gerado na pasta `dist/`. O projeto ainda não possui uma suíte automatizada de testes.
+
+### Configuração opcional do formulário
+
+O site pode ser executado sem configurar o EmailJS; nesse caso, o formulário informa que o envio não está disponível e os outros canais de contato continuam acessíveis.
+
+Para habilitar o envio:
+
+1. Crie um serviço e um template no [EmailJS](https://www.emailjs.com/).
+2. Copie `.env.example` para `.env.local`.
+3. Preencha as variáveis abaixo com os valores da sua conta:
 
 ```env
 VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
@@ -198,146 +125,34 @@ VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
 VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxx
 ```
 
-Reinicie o Vite após alterar `.env.local`. A Public Key é própria para uso no cliente; não coloque senhas nem Secret Keys nessas variáveis. Para produção, cadastre os mesmos valores em **Vercel → Project Settings → Environment Variables**. Sem a configuração, o formulário informa que o envio está indisponível e mantém visíveis os outros canais de contato.
+O template deve usar `{{from_name}}`, `{{reply_to}}` e `{{message}}`. Reinicie o servidor de desenvolvimento após alterar as variáveis. A Public Key é destinada ao cliente; não inclua senhas nem Secret Keys. Para o formulário funcionar em produção, cadastre as mesmas variáveis nas configurações de ambiente do provedor de hospedagem.
 
-### ⚡ Como Executar a Aplicação
+## Publicação na nuvem
 
-```bash
-npm run dev
+A publicação está planejada para a [Vercel](https://vercel.com/), no plano gratuito disponível para projetos pessoais.
+
+1. Importe o repositório `Tuzfi/Portfolio` na Vercel.
+2. Selecione o framework **Vite** e confirme:
+   - Comando de build: `npm run build`
+   - Pasta de saída: `dist`
+3. Se quiser habilitar o formulário em produção, configure as variáveis `VITE_EMAILJS_*` nas configurações do projeto.
+4. Publique o projeto e abra a URL gerada pela Vercel para validar as rotas e os arquivos estáticos.
+5. Após confirmar a publicação, substitua o aviso no início deste README pelo link público, por exemplo:
+
+```markdown
+> **Acesso ao site:** [https://seu-projeto.vercel.app](https://seu-projeto.vercel.app)
 ```
 
-O Vite informa no terminal a URL local, normalmente **http://localhost:5173**.
+O arquivo [`vercel.json`](./vercel.json) encaminha as rotas da aplicação para `index.html`, permitindo o acesso direto às páginas da SPA.
 
-```bash
-npm run build
-npm run preview
-```
+## Scripts disponíveis
 
----
+| Comando | Descrição |
+| :--- | :--- |
+| `npm run dev` | Inicia o servidor local de desenvolvimento |
+| `npm run build` | Gera a versão de produção em `dist/` |
+| `npm run preview` | Serve localmente a versão compilada |
 
-## 🚀 Deploy
+## Licenças de fontes
 
-Hospedagem: **Vercel** (preset Vite).
-
-1. Conectar o repositório `Tuzfi/Portfolio` na Vercel.
-2. Framework preset: **Vite**.
-3. Configurar as variáveis `VITE_EMAILJS_*` descritas na seção de EmailJS.
-4. Cada push em `main` gera produção; pull requests geram Preview.
-
-O link público entra na seção [Links Úteis](#-links-úteis) na Sprint 03.
-
----
-
-## 📂 Estrutura de Pastas
-
-Estrutura atual do aplicativo Vite + React, organizada por responsabilidade:
-
-```
-.
-├── archive/
-│   └── legacy-static-prototype/ # Protótipo HTML/CSS/JS antigo, fora do build
-├── docs/                        # Protótipos, wireframes e assets da documentação
-├── public/
-│   ├── curriculos/              # PDFs PT e EN servidos pelo Vite
-│   └── images/                  # Imagens estáticas e GIFs dos projetos
-├── src/
-│   ├── app/                     # Aplicação e composição das rotas
-│   ├── components/
-│   │   ├── deck/                # Baralho, cartas e animação de distribuição
-│   │   └── shared/              # Componentes reutilizados pelas páginas
-│   ├── context/                 # Estado global de idioma
-│   ├── data/                    # Cartas e traduções PT/EN
-│   ├── pages/                   # Páginas das rotas
-│   ├── services/                # Integrações externas, como EmailJS
-│   ├── styles/                  # CSS global
-│   └── main.jsx                 # Entrada React, providers e estilos globais
-├── .env.example                 # Nomes das variáveis públicas necessárias
-├── index.html
-├── package.json
-├── vercel.json
-└── vite.config.js
-```
-
-Os arquivos do protótipo estático foram preservados em `archive/legacy-static-prototype/` para referência; o Vite inicia exclusivamente por `src/main.jsx`.
-
----
-
-## 🎥 Demonstração
-
-Os protótipos de média fidelidade estão preservados abaixo como referência; a aplicação funcional está na raiz do repositório.
-
-### 🌐 Aplicação Web — protótipos
-
-| Tela | Captura |
-| :---: | :---: |
-| **Home (baralho)** | **Projetos** |
-| <img src="./docs/prototipos/01-home-baralho.png" alt="Protótipo da home com baralho de cartas" width="360"> | <img src="./docs/prototipos/02-projetos.png" alt="Protótipo da seção Projetos" width="360"> |
-| **Experiências** | **Sobre Mim** |
-| <img src="./docs/prototipos/03-experiencias.png" alt="Protótipo da seção Experiências" width="360"> | <img src="./docs/prototipos/04-sobre-mim.png" alt="Protótipo da seção Sobre Mim" width="360"> |
-| **Habilidades** | **Contato** |
-| <img src="./docs/prototipos/05-habilidades.png" alt="Protótipo da seção Habilidades" width="360"> | <img src="./docs/prototipos/06-contato.png" alt="Protótipo da seção Contato" width="360"> |
-
-**Navegação — baralho aberto sobre a seção atual**
-
-<img src="./docs/prototipos/07-navegacao-baralho-aberto.png" alt="Protótipo do baralho aberto para trocar de seção" width="480">
-
-> [!WARNING]
-> Os textos, projetos e experiências dos wireframes são **placeholder**. Serão substituídos por dados reais nas Sprints 02 e 03.
-
----
-
-## 🧪 Testes
-
-O repositório ainda não tem suíte automatizada. A validação de produção é feita com:
-
-```bash
-npm run build
-npm run preview
-```
-
----
-
-## 🔗 Documentações utilizadas
-
-* 📖 [Vite](https://vite.dev/guide/)
-* 📖 [React](https://react.dev/)
-* 📖 [React Router](https://reactrouter.com/)
-* 📖 [React-PDF](https://github.com/wojtekmaj/react-pdf)
-* 📖 [EmailJS](https://www.emailjs.com/docs/)
-* 📖 [Vercel](https://vercel.com/docs)
-* 📖 [Template de README — Prof. João Paulo Aramuni](https://github.com/joaopauloaramuni/desenvolvimento-e-integracao-de-aplicacoes-web/blob/main/TEMPLATES/template_README.md)
-* 🎨 Exemplos de portfólio citados no enunciado: [Flávio Júnior](https://flaviojunior-portfolio.vercel.app/), [Gabriel Victor](https://gabrielvictor.web.app/), [Pedro Braga](https://www.pedrobragadev.com/), [Luca Azalim](https://azal.im/)
-
----
-
-## 👥 Autores
-
-| 👤 Nome | 🖼️ Foto | :octocat: GitHub | 💼 LinkedIn |
-|---------|----------|-----------------|-------------|
-| Keven Lino | <div align="center"><img src="https://github.com/Tuzfi.png" width="70px" height="70px" alt="Foto de Keven Lino"></div> | <div align="center"><a href="https://github.com/Tuzfi">Tuzfi</a></div> | <div align="center">a preencher</div> |
-
----
-
-## 🤝 Contribuição
-
-Este é um trabalho acadêmico individual. Mesmo assim, o fluxo abaixo vale para organização das partes:
-
-1. Trabalhe em `main` ou em branches por sprint (`s01-layout`, `s02-secoes`, `s03-deploy`).
-2. Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) quando possível (`feat:`, `docs:`, `chore:`).
-3. Abra Pull Request apenas se o fluxo da disciplina pedir revisão.
-
----
-
-## 🙏 Agradecimentos
-
-* [**Engenharia de Software PUC Minas**](https://www.instagram.com/engsoftwarepucminas/) — contexto acadêmico do laboratório.
-* [**Prof. Dr. João Paulo Aramuni**](https://github.com/joaopauloaramuni) — enunciado do Lab 01, template de README e referências de stack.
-* Exemplos de portfólio listados no enunciado, usados como referência de qualidade visual (não como cópia de layout).
-
----
-
-## 📄 Licença
-
-Uso acadêmico (Lab 01 — DIAW). O código neste repositório pode ser redistribuído para fins de avaliação da disciplina. Licença formal (MIT) pode ser adicionada na Sprint 03, se desejado.
-
----
+As fontes locais estão em `public/fonts/`. A licença OFL fornecida para a fonte Quintessential está junto aos arquivos de fonte.
